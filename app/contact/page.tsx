@@ -13,14 +13,14 @@ const contactDetails = [
   { 
     icon: Mail, 
     title: 'Email Us', 
-    value: 'hello@softcodec.ai', 
+    value: 'softcodec.com@gmail.com', 
     color: '#7c3aed',
     desc: 'Our technical team typically responds within 4 business hours.'
   },
   { 
     icon: Phone, 
     title: 'Call Us', 
-    value: '+92 300 1234567', 
+    value: '+92-307-6209331', 
     color: '#06b6d4',
     desc: 'Available Mon-Fri, 9am - 6pm PKT for immediate inquiries.'
   }
