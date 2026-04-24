@@ -1096,11 +1096,13 @@ body {
   }
 
   /* Force stack for any inline grid with 2+ columns */
+  .grid-2, .grid-3, .grid-4, .grid-5,
   div[style*="grid-template-columns: repeat(2"],
   div[style*="grid-template-columns: repeat(3"],
   div[style*="grid-template-columns: repeat(4"],
   div[style*="grid-template-columns: repeat(auto-fit"],
-  div[style*="grid-template-columns: minmax"] {
+  div[style*="grid-template-columns: minmax"],
+  div[style*="grid-template-columns: 1fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
   }

@@ -149,7 +149,7 @@ export default function Home() {
                 We don&apos;t just write code; we architect the future. SoftCodec merges industrial-grade engineering with visionary design to build digital products that dominate their markets. Every line of code is a step toward your digital sovereignty.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '48px' }}>
+              <div className="grid-2" style={{ gap: '20px', marginTop: '48px' }}>
                 <div className="glass-card dark-glass-card reveal" style={{ 
                   padding: '32px 24px', 
                   background: 'rgba(3, 3, 10, 0.92)',
