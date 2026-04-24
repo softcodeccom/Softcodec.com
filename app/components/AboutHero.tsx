@@ -13,7 +13,7 @@ export default function AboutHero() {
       position: 'relative', 
       overflow: 'hidden', 
       background: '#ffffff', // Requested White Background
-      padding: '120px 0 100px'
+      padding: '80px 0 60px'
     }}>
       {/* Subtle Grid Pattern for Texture */}
       <div className="grid-bg" style={{ opacity: 0.05, filter: 'invert(1)' }} />
@@ -56,10 +56,10 @@ export default function AboutHero() {
 
               <h1 style={{ 
                 fontFamily: 'Orbitron, sans-serif', 
-                fontSize: 'clamp(48px, 6vw, 84px)', 
+                fontSize: 'clamp(40px, 5vw, 68px)', 
                 fontWeight: 900, 
                 lineHeight: 1.05, 
-                letterSpacing: '-3px', 
+                letterSpacing: '-1.5px', 
                 color: '#0f172a', // Dark text for white background
                 marginBottom: '32px' 
               }}>
@@ -94,7 +94,7 @@ export default function AboutHero() {
             </motion.div>
           </div>
 
-          <div className="reveal-right hide-mobile" style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+          <div className="reveal-right" style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
             {/* Soft Backlight Accent */}
             <motion.div
               animate={{ 

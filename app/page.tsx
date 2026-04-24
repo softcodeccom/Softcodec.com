@@ -123,7 +123,7 @@ export default function Home() {
       </div>
 
       {/* Stats */}
-      <section className="section" style={{ paddingTop: '100px', paddingBottom: '100px' }} id="about">
+      <section className="section" style={{ paddingTop: '60px', paddingBottom: '60px' }} id="about">
         <div className="container">
           <div className="grid-4">
             {statsData.map((s, i) => (
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* ============ THE DIGITAL FORGE (ABOUT) ============ */}
-      <section className="section" id="forge" style={{ paddingTop: '100px', paddingBottom: '160px', background: 'var(--bg-primary)' }}>
+      <section className="section" id="forge" style={{ paddingTop: '60px', paddingBottom: '80px', background: 'var(--bg-primary)' }}>
         <div className="container">
           <div className="grid-2" style={{ alignItems: 'center' }}>
             <div className="reveal-left">
@@ -182,31 +182,27 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="reveal-right hide-mobile" style={{ position: 'relative', width: '100%' }}>
-              <div 
-                className="glass-card" 
-                style={{ 
-                  borderRadius: '32px', 
-                  overflow: 'hidden', 
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 40px 100px rgba(0,0,0,0.5)'
-                }}
-              >
-                <img 
-                  src="/tech-workspace.png" 
-                  alt="Engineering Workspace" 
-                  style={{ width: '100%', height: '540px', objectFit: 'cover' }} 
-                />
-              </div>
+            <div className="reveal-right" style={{ position: 'relative', width: '100%' }}>
+               <img 
+                 src="/tech-workspace.png" 
+                 alt="Engineering Workspace" 
+                 style={{ 
+                   width: '100%', 
+                   height: '540px', 
+                   objectFit: 'cover',
+                   borderRadius: '32px',
+                   boxShadow: '0 40px 100px rgba(0,0,0,0.5)'
+                 }} 
+               />
             </div>
           </div>
         </div>
       </section>
 
       {/* ============ WHY CHOOSE US (NEURAL TREE) ============ */}
-      <section className="section" style={{ background: 'var(--bg-secondary)', paddingTop: '160px', paddingBottom: '160px', overflow: 'hidden' }} id="why-us">
+      <section className="section" style={{ background: 'var(--bg-secondary)', paddingTop: '80px', paddingBottom: '80px', overflow: 'hidden' }} id="why-us">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '140px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className="system-status" style={{ marginBottom: '24px', justifyContent: 'center' }}>
               <div className="system-dot" />
               THE SOFTCODEC CONTEXT
@@ -219,7 +215,7 @@ export default function Home() {
 
           <div className="neural-surface">
             {/* SVG Background Skeleton */}
-            <svg className="neural-svg-layer hide-mobile" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <svg className="neural-svg-layer " viewBox="0 0 1000 1000" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="neural-grad" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#8b5cf6" />
@@ -229,7 +225,7 @@ export default function Home() {
 
               {/* Main Trunk Path (Curved) */}
               <path
-                className="neural-path reveal"
+                className="neural-path visible"
                 d="M 500 0 C 480 200, 520 400, 500 600 S 480 800, 500 1000"
               />
 
@@ -245,9 +241,8 @@ export default function Home() {
                 return (
                   <path
                     key={i}
-                    className="neural-path reveal"
+                    className="neural-path visible"
                     d={pathD}
-                    style={{ transitionDelay: `${i * 0.3}s` }}
                   />
                 );
               })}
@@ -265,10 +260,9 @@ export default function Home() {
               return (
                 <div key={i}>
                   {/* Node Icon — positioned at % to match SVG line endpoint */}
-                  <div className="neural-node-wrapper reveal" style={{
+                  <div className="neural-node-wrapper visible" style={{
                     top: `${nodeY}px`,
                     left: `${nodeXPct}%`,
-                    transitionDelay: `${i * 0.3 + 0.4}s`
                   }}>
                     <div className="neural-glow-node" style={{
                       '--node-color-low': `${w.color}25`,
@@ -277,19 +271,18 @@ export default function Home() {
                       <Icon size={28} color={w.color} strokeWidth={1.5} />
 
                       {/* Traveling Data Packet (CSS Path) */}
-                      <div className="neural-data-packet hide-mobile" style={{
+                      <div className="neural-data-packet " style={{
                         '--path-id': `path('M 500 ${startY} C ${isLeft ? 400 : 600} ${startY}, ${isLeft ? 400 : 600} ${nodeY}, ${nodeX} ${nodeY}')`
                       } as any} />
                     </div>
                   </div>
 
                   {/* Feature Text Content — calc() from node % position */}
-                  <div className="neural-text reveal" style={{
+                  <div className="neural-text visible" style={{
                     top: `${nodeY}px`,
                     left: isLeft ? '0' : `calc(${nodeXPct}% + 44px)`,
                     width: isLeft ? `calc(${nodeXPct}% - 44px)` : `calc(${100 - nodeXPct}% - 44px)`,
                     textAlign: isLeft ? 'right' : 'left',
-                    transitionDelay: `${i * 0.3 + 0.6}s`,
                   }}>
                     <div style={{ fontSize: '11px', fontWeight: 900, color: w.color, marginBottom: '8px', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.8 }}>
                       Node 0{i + 1}
@@ -346,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* ============ AWARDS & RECOGNITION (ELITE WALL) ============ */}
-      <section className="section" style={{ paddingTop: '80px', paddingBottom: '100px', background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-subtle)' }}>
+      <section className="section" style={{ paddingTop: '40px', paddingBottom: '60px', background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-subtle)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '4px', color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase' }}>
@@ -422,9 +415,9 @@ export default function Home() {
       </section>
 
       {/* ============ CORE SERVICES (PREMIUM GRID) ============ */}
-      <section className="section" style={{ background: 'var(--bg-secondary)', paddingTop: '160px', paddingBottom: '160px' }} id="services">
+      <section className="section" style={{ background: 'var(--bg-secondary)', paddingTop: '80px', paddingBottom: '80px' }} id="services">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className="system-status" style={{ marginBottom: '24px', justifyContent: 'center' }}>
               <div className="system-dot" />
               CAPABILITIES
@@ -522,9 +515,9 @@ export default function Home() {
       </section>
 
       {/* ============ THE PROOF IN PRODUCTION (CASE STUDIES) ============ */}
-      <section className="section" style={{ paddingTop: '160px', paddingBottom: '160px', background: 'var(--bg-secondary)' }} id="proof">
+      <section className="section" style={{ paddingTop: '80px', paddingBottom: '80px', background: 'var(--bg-secondary)' }} id="proof">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className="system-status" style={{ marginBottom: '24px', justifyContent: 'center' }}>
               <div className="system-dot" />
               IMPACT & EVIDENCE
@@ -585,7 +578,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '80px' }}>
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <Link href="/portfolio" className="btn-outline" style={{ 
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               padding: '16px 40px', fontSize: '15px', fontWeight: 700
@@ -598,25 +591,25 @@ export default function Home() {
 
       {/* ============ GLOBAL PRESENCE DASHBOARD ============ */}
       <section className="section" style={{
-        background: 'var(--bg-secondary)', paddingTop: '120px', paddingBottom: '120px',
+        background: 'var(--bg-secondary)', paddingTop: '60px', paddingBottom: '60px',
         position: 'relative', overflow: 'hidden',
       }} id="presence">
         {/* Background glow */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className="system-status" style={{ marginBottom: '20px', justifyContent: 'center' }}>
               <div className="system-dot" />
               GLOBAL PRESENCE
             </span>
             <h2 className="section-heading">Serving Clients <br /><span className="gradient-text">Worldwide</span></h2>
-            <p className="section-subtext" style={{ marginTop: '20px', maxWidth: '600px' }}>
+            <p className="section-subtext" style={{ marginTop: '20px', maxWidth: '600px', marginBottom: '10px' }}>
               From Silicon Valley to Dubai to London — our team serves ambitious businesses across every continent with dedicated timezone support.
             </p>
           </div>
           
           {/* 3D Spinning Ring with Node Cards */}
-          <div className="reveal-up" style={{ height: '500px', width: '100%', position: 'relative', overflow: 'visible', marginTop: '60px' }}>
+          <div className="reveal-up" style={{ height: '400px', width: '100%', position: 'relative', overflow: 'visible', marginTop: '-40px' }}>
             <div className="ring-3d-scene" style={{ height: '100%', transform: 'scale(1.2)' }}>
               <div className="ring-3d-object">
                 {[
@@ -676,7 +669,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="section" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+      <section className="section" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h2 className="section-heading">Trusted by <span className="gradient-text">Leaders</span></h2>
@@ -788,7 +781,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="section" id="faq" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+      <section className="section" id="faq" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="container">
           <div className="grid-2" style={{ gap: '80px' }}>
             <div>
@@ -806,7 +799,7 @@ export default function Home() {
             </div>
             <div className="faq-accordion">
               {faqs.map((f, i) => (
-                <div key={i} className={`faq-item reveal ${openFaq === i ? 'open' : ''}`} style={{ transitionDelay: `${i * 0.08}s` }}>
+                <div key={i} className={`faq-item visible ${openFaq === i ? 'open' : ''}`}>
                   <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                     {f.q}
                     <span style={{ fontSize: '22px', opacity: 0.5 }}>{openFaq === i ? '−' : '+'}</span>
@@ -831,7 +824,7 @@ export default function Home() {
         {/* Grid pattern */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: 'radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2, padding: '120px 24px 140px', textAlign: 'center' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2, padding: '80px 24px 100px', textAlign: 'center' }}>
           {/* Top badge */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 20px', borderRadius: '100px', background: 'rgba(124,58,237,0.06)', border: '1px solid rgba(124,58,237,0.2)', backdropFilter: 'blur(10px)' }}>

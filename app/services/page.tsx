@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, Plus, Globe, Smartphone, Bot, ShoppingCart, Cloud, Palette, Search, Megaphone, PenTool, LayoutTemplate, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 
@@ -233,7 +232,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Footer />
       <style>{`
         .card-indicator { opacity: 0; }
         a:hover .card-indicator { opacity: 1 !important; }

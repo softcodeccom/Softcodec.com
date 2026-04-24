@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, ShieldCheck, Zap, Globe, Target, ChevronRight, LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool } from 'lucide-react';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import ScrollProgress from '../../components/ScrollProgress';
 import CursorGlow from '../../components/CursorGlow';
 
@@ -143,8 +142,6 @@ export default function ProjectDetailPage() {
             </div>
          </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

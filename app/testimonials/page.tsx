@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Star, Quote, ArrowRight, Zap, Target, TrendingUp, Users } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 
@@ -419,7 +418,6 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

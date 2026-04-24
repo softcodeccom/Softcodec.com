@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 import WorkProcess from '../components/WorkProcess';
@@ -66,7 +65,7 @@ export default function AboutPage() {
       <AboutHero />
 
       {/* ─── 2. CINEMATIC MISSION ─── */}
-      <section className="section" style={{ background: '#ffffff', position: 'relative', overflow: 'hidden', padding: '160px 0' }}>
+      <section className="section" style={{ background: '#ffffff', position: 'relative', overflow: 'hidden', padding: '60px 0' }}>
         {/* Light accent glow */}
         <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
         
@@ -80,13 +79,19 @@ export default function AboutPage() {
             boxShadow: '0 40px 100px rgba(0,0,0,0.05)'
           }}>
             <div className="grid-2" style={{ gap: '0', alignItems: 'stretch' }}>
-              <div style={{ padding: '80px', flex: 1 }}>
+              <div style={{ padding: '60px 50px', flex: 1 }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#7c3aed', fontSize: '12px', fontWeight: 900, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '24px' }}>
                   <Sparkles size={14} /> Our Core Mission
                 </div>
-                <h2 style={{ fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1, marginBottom: '32px' }}>
-                  Rooted in Excellence, <br />
-                  <span className="gradient-text">Driven by Purpose.</span>
+                <h2 style={{ fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1, marginBottom: '32px', letterSpacing: '-1.5px' }}>
+                  Rooted in <span style={{ color: '#7c3aed' }}>Excellence</span>,<br />
+                  <span style={{ 
+                    background: 'linear-gradient(90deg, #7c3aed, #06b6d4)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}>
+                    Driven by Purpose.
+                  </span>
                 </h2>
                 <p style={{ color: '#475569', fontSize: '19px', lineHeight: 1.8, marginBottom: '48px', maxWidth: '500px' }}>
                   SoftCodec was founded on the belief that world-class engineering should be accessible to everyone. Our journey is defined by a relentless pursuit of technical perfection and a heart for human collaboration. We don't just solve problems; we build the bridges to your future.
@@ -102,7 +107,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="hide-mobile" style={{ flex: 1, position: 'relative', minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9' }}>
+              <div className="" style={{ flex: 1, position: 'relative', minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9' }}>
                 <motion.img 
                   src="/about-hero-icon.png" 
                   alt="Rotating Mission Icon" 
@@ -300,7 +305,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

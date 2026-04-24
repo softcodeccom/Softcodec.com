@@ -96,7 +96,7 @@ export default function WebDevelopmentPage() {
                initial={{ opacity: 0, scale: 0.8, x: -20 }} 
                animate={{ opacity: 1, scale: 1, x: 0 }} 
                transition={{ duration: 1.2, ease: "easeOut" }}
-               className="hide-mobile"
+               className="visible"
             >
               <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {/* Floating Glow Behind Image */}
@@ -191,7 +191,7 @@ export default function WebDevelopmentPage() {
       {/* ─── 2. ENTERPRISE STATS GRID ─── */}
       <section style={{ padding: '0 0 120px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
+          <div className="grid-4" style={{ gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
               { num: '200+', label: 'Platforms Engineered', sub: 'High-Scale Deployments' },
               { num: '0.4s', label: 'Average LCP', sub: 'Lighthouse Score 100/100' },
@@ -362,7 +362,7 @@ export default function WebDevelopmentPage() {
       {/* ─── 4. THE TECH ARSENAL (PREMIUM PILLS) ─── */}
       <section style={{ padding: '120px 0', background: '#fff' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.2fr)', gap: '100px', alignItems: 'center' }}>
+          <div className="grid-2" style={{ gap: '40px', alignItems: 'center' }}>
             <div>
               <span style={{ color: BRAND_COLOR, fontWeight: 900, textTransform: 'uppercase', fontSize: '12px', letterSpacing: '3px', display: 'block', marginBottom: '16px' }}>Industrial Stack</span>
               <h2 style={{ fontSize: '48px', fontWeight: 950, letterSpacing: '-2px', marginBottom: '24px' }}>The Arsenal of <br />Market Leaders.</h2>

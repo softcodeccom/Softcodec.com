@@ -92,7 +92,7 @@ export default function MobileAppsPage() {
               initial={{ opacity: 0, scale: 0.9 }} 
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 1.2 }}
-              className="hide-mobile"
+              className="visible"
               style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
             >
               <div style={{ position: 'relative', zIndex: 2 }}>

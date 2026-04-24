@@ -57,7 +57,7 @@ export default function Hero() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(0, 0, 0, 0.2)', // Reduced opacity from 0.6 to 0.4
+          background: 'rgba(0, 0, 0, 0.55)', // Increased for better text contrast
           zIndex: 1
         }} />
       </div>
@@ -91,7 +91,7 @@ export default function Hero() {
             with <span className="gradient-text">Intelligent Code</span>
           </h1>
 
-          <p className="section-subtext reveal" style={{ animationDelay: '0.3s', fontSize: '20px', color: '#ffffffcc', margin: '0 auto 40px' }}>
+          <p className="section-subtext reveal" style={{ animationDelay: '0.3s', fontSize: '20px', color: '#ffffff', margin: '0 auto 40px', textShadow: '0 2px 10px rgba(0,0,0,0.3)', fontWeight: 500 }}>
             We engineer world-class AI solutions, blazing-fast web apps, and modern mobile experiences that drive real business growth.
           </p>
 

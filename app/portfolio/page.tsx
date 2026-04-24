@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool, ArrowRight, Sparkles, ChevronRight, Zap, Target, Users, Globe } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 
@@ -75,7 +74,7 @@ export default function PortfolioPage() {
                initial={{ opacity: 0, scale: 0.8, x: 20 }} 
                animate={{ opacity: 1, scale: 1, x: 0 }} 
                transition={{ duration: 1.2, ease: "easeOut" }}
-               className="hide-mobile"
+               className=""
             >
               <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{ 
@@ -323,10 +322,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Wrapping Footer in dark mode fix */}
-      <div style={{ background: '#020205' }}>
-        <Footer />
-      </div>
     </div>
   );
 }

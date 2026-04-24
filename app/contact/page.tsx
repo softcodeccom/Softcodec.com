@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github, ChevronRight, Send } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 
@@ -110,7 +109,7 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Right Column: Communication Hub Visual */}
-            <div className="hide-mobile" style={{ position: 'relative', height: '400px', width: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="" style={{ position: 'relative', height: '400px', width: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               
               {/* Central Phone Icon (Styled 3D) */}
               <motion.div
@@ -381,8 +380,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
       <style>{`
         select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; }
       `}</style>
