@@ -99,9 +99,9 @@ export default function Footer() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>© {currentYear} SoftCodec AI. Pakistan&apos;s #1 Agency.</p>
           <div style={{ display: 'flex', gap: '24px' }}>
-             {['Privacy', 'Terms', 'Credits'].map((l) => (
-                <Link key={l} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px' }}>{l}</Link>
-             ))}
+             <Link href="/privacy" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>Privacy</Link>
+             <Link href="/terms" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>Terms</Link>
+             <Link href="/credits" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>Credits</Link>
           </div>
         </div>
       </div>

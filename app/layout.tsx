@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 
 export default function RootLayout({
   children,
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
