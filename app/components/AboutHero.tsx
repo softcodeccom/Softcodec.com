@@ -13,7 +13,7 @@ export default function AboutHero() {
       position: 'relative', 
       overflow: 'hidden', 
       background: '#ffffff', // Requested White Background
-      padding: '80px 0 60px'
+      padding: '120px 0 60px'
     }}>
       {/* Subtle Grid Pattern for Texture */}
       <div className="grid-bg" style={{ opacity: 0.05, filter: 'invert(1)' }} />
