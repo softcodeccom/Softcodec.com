@@ -8,6 +8,10 @@ import IntroScan from './components/IntroScan';
 export const metadata: Metadata = {
   title: 'SoftCodec | Premium AI-Native Software House Pakistan',
   description: "SoftCodec is Pakistan's #1 software house — delivering world-class web apps, mobile apps, AI solutions, and digital experiences that transform businesses.",
+  icons: {
+    icon: '/image.jpg.jpg',
+    apple: '/image.jpg.jpg',
+  },
 };
 
 import PublicLayoutWrapper from './components/PublicLayoutWrapper';
@@ -20,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ scrollBehavior: 'smooth' }}>
       <head>
+        <link rel="icon" href="/image.jpg.jpg?v=4" />
+        <link rel="apple-touch-icon" href="/image.jpg.jpg?v=4" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
