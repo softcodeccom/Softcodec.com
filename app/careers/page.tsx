@@ -257,7 +257,7 @@ export default function CareersPage() {
               <ArrowRight size={18} style={{ transform: 'rotate(180deg)' }} /> Back to Roles
             </button>
 
-            <div style={{ display: 'flex', flexDirection: 'column', lg: 'row', gap: '32px' }} className="responsive-flex">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }} className="responsive-flex">
               {/* Form Side */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ flex: 1.2, background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '32px', padding: 'clamp(30px, 5vw, 60px)', boxShadow: '0 15px 40px rgba(0,0,0,0.02)' }}>
                 <div style={{ marginBottom: '40px' }}>
@@ -336,7 +336,7 @@ export default function CareersPage() {
 
                 <div style={{ background: '#ffffff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '40px' }}>
                   <h4 style={{ fontSize: '14px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '24px' }}>Arsenal Benefits</h4>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', lg: '1fr', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '16px' }}>
                     {[
                       { icon: Coffee, color: '#f59e0b', text: 'Premium Snacks' },
                       { icon: Heart, color: '#ef4444', text: 'Health Perks' },
