@@ -33,12 +33,30 @@ const socialLinks = [
 ];
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState<'idle'|'sending'|'sent'>('idle');
+  const [formState, setFormState] = useState<'idle'|'sending'|'sent'|'error'>('idle');
+  const [formData, setFormData] = useState({ name: '', email: '', service: 'Elite Web Development', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('sending');
-    setTimeout(() => setFormState('sent'), 1500);
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+      
+      setFormState('sent');
+      setFormData({ name: '', email: '', service: 'Elite Web Development', message: '' });
+      setTimeout(() => setFormState('idle'), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setFormState('error');
+      setTimeout(() => setFormState('idle'), 3000);
+    }
   };
 
   return (
@@ -321,6 +339,8 @@ export default function ContactPage() {
                       <input 
                         type="text" 
                         required 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="John Doe"
                         style={{ width: '100%', padding: '16px', background: 'rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '14px', color: '#0f172a', fontWeight: 600, outline: 'none', transition: 'all 0.3s ease' }} 
                         onFocus={(e) => e.target.style.borderColor = '#7c3aed'}
@@ -332,6 +352,8 @@ export default function ContactPage() {
                       <input 
                         type="email" 
                         required 
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="john@softcodec.ai"
                         style={{ width: '100%', padding: '16px', background: 'rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '14px', color: '#0f172a', fontWeight: 600, outline: 'none', transition: 'all 0.3s ease' }} 
                         onFocus={(e) => e.target.style.borderColor = '#7c3aed'}
@@ -342,7 +364,11 @@ export default function ContactPage() {
 
                   <div className="form-group">
                     <label style={{ fontSize: '12px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '10px' }}>Inquiry Domain</label>
-                    <select style={{ width: '100%', padding: '16px', background: 'rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '14px', color: '#0f172a', fontWeight: 600, outline: 'none', appearance: 'none' }}>
+                    <select 
+                      value={formData.service}
+                      onChange={(e) => setFormData({...formData, service: e.target.value})}
+                      style={{ width: '100%', padding: '16px', background: 'rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '14px', color: '#0f172a', fontWeight: 600, outline: 'none', appearance: 'none' }}
+                    >
                       <option>Elite Web Development</option>
                       <option>High-Performance Mobile Apps</option>
                       <option>AI-First Engineering</option>
@@ -356,6 +382,8 @@ export default function ContactPage() {
                     <textarea 
                       rows={4} 
                       required 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
                       placeholder="Give us a high-level summary of your project vision..."
                       style={{ width: '100%', padding: '16px', background: 'rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '14px', color: '#0f172a', fontWeight: 600, outline: 'none', transition: 'all 0.3s ease', resize: 'none' }} 
                       onFocus={(e) => e.target.style.borderColor = '#7c3aed'}
@@ -368,10 +396,13 @@ export default function ContactPage() {
                     whileTap={{ scale: 0.98 }}
                     type="submit" 
                     className="btn-primary" 
-                    disabled={formState !== 'idle'} 
-                    style={{ width: '100%', padding: '20px', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}
+                    disabled={formState === 'sending' || formState === 'sent'} 
+                    style={{ 
+                      width: '100%', padding: '20px', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
+                      background: formState === 'error' ? '#ef4444' : formState === 'sent' ? '#10b981' : undefined
+                    }}
                   >
-                    <span>{formState === 'idle' ? 'Initialize Contact' : formState === 'sending' ? 'Sending Technical Data...' : 'Message Deployed Successfully!'}</span>
+                    <span>{formState === 'idle' ? 'Initialize Contact' : formState === 'sending' ? 'Sending Technical Data...' : formState === 'error' ? 'Connection Error - Try Again' : 'Message Deployed Successfully!'}</span>
                     {formState === 'idle' && <Send size={18} />}
                   </motion.button>
                 </form>

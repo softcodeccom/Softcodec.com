@@ -158,7 +158,7 @@ export default function PrivacyPage() {
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '18px', marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px' }}>Our dedicated legal and security operations center is ready to address any concerns regarding your data governance.</p>
               
               <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-                <a href="mailto:privacy@softcodec.com" className="btn-primary" style={{ padding: '20px 48px', background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
+                <a href="mailto:privacy@softcodec.co" className="btn-primary" style={{ padding: '20px 48px', background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
                   Contact DPO Team
                 </a>
                 <Link href="/contact" style={{ padding: '20px 48px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '100px', fontWeight: 800, textDecoration: 'none', color: '#fff' }}>

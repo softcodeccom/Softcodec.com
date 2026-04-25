@@ -3,19 +3,25 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool, ArrowRight, Sparkles, ChevronRight, Zap, Target, Users, Globe } from 'lucide-react';
+import { LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool, ArrowRight, Sparkles, ChevronRight, Zap, Target, Users, Globe, Layout } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
+import { supabase } from '../../lib/supabase';
 
-const projects = [
-  { id: 1, category: 'Web Development', title: 'NexTrade AI Platform', desc: 'A sophisticated dashboard for AI-powered crypto trading with real-time analytics.', icon: LineChart, color: '#7c3aed', image: '/laptop-dashboard.png' },
-  { id: 2, category: 'Mobile Apps', title: 'HealthSync Wellness', desc: 'React Native fitness app with real-time biometric tracking and AI workout plans.', icon: Smartphone, color: '#06b6d4', image: '/Placehunter - Mobile App UX_UI.png' },
-  { id: 3, category: 'AI & Automation', title: 'SmartRetail Pro', desc: 'AI-driven inventory forecasting and automated restocking system for global retailers.', icon: Bot, color: '#ec4899', image: '/Concept of cloud computing technology isometric illustration by generative ai _ Premium AI-generated image-Photoroom.png' },
-  { id: 4, category: 'E-Commerce', title: 'PureBazaar Store', desc: 'High-performing headless e-commerce store with 0.8s load time and 20% conversion boost.', icon: ShoppingBag, color: '#10b981', image: '/Os 6 E-commerces Mais Confiáveis do Brasil 2025 🛒✨-Photoroom.png' },
-  { id: 5, category: 'Cloud & DevOps', title: 'SecureStack Cloud', desc: 'Enterprise-grade cloud migration for a major bank with zero downtime and 40% cost saving.', icon: Cloud, color: '#3b82f6', image: '/Multi-Cloud Adoption in 2025_ Strategies, Benefits & Enterprise Challenges-Photoroom.png' },
-  { id: 6, category: 'UI/UX Design', title: 'ZenSpace Mobile UI', desc: 'Minimalist meditation app design focused on reducing cognitive load and maximizing calm.', icon: PenTool, color: '#f59e0b', image: '/3d uiux mobile screen with user elements _ Premium Photo-Photoroom.png' },
-];
+// Helper function to get icon and color based on category
+const getCategoryAssets = (category: string) => {
+  switch (category) {
+    case 'Web App':
+    case 'Web Development': return { icon: LineChart, color: '#7c3aed' };
+    case 'Mobile App': return { icon: Smartphone, color: '#06b6d4' };
+    case 'SaaS': return { icon: Cloud, color: '#3b82f6' };
+    case 'AI & Automation': return { icon: Bot, color: '#ec4899' };
+    case 'E-Commerce': return { icon: ShoppingBag, color: '#10b981' };
+    case 'UI/UX Design': return { icon: PenTool, color: '#f59e0b' };
+    default: return { icon: Layout, color: '#94a3b8' };
+  }
+};
 
 const categories = ['All', 'Web Development', 'Mobile Apps', 'AI & Automation', 'E-Commerce', 'Cloud & DevOps', 'UI/UX Design'];
 const BRAND_COLOR = "#7c3aed";
@@ -23,7 +29,35 @@ const BRAND_GRADIENT = "linear-gradient(135deg, #7c3aed, #06b6d4)";
 
 export default function PortfolioPage() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [projects, setProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('status', 'Published')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      const mappedProjects = (data || []).map(p => ({
+        ...p,
+        ...getCategoryAssets(p.category)
+      }));
+      setProjects(mappedProjects);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const [filter, setFilter] = useState('All');
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
@@ -229,20 +263,27 @@ export default function PortfolioPage() {
                       height: '280px', 
                       position: 'relative',
                       borderBottom: '1px solid rgba(255,255,255,0.05)',
-                      overflow: 'hidden'
+                      overflow: 'hidden',
+                      background: 'rgba(255,255,255,0.02)'
                     }}>
-                      <motion.img 
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        src={p.image} 
-                        alt={p.title}
-                        style={{ 
-                          width: '100%', 
-                          height: '100%', 
-                          objectFit: 'cover',
-                          opacity: 0.8
-                        }} 
-                      />
+                      {p.image_url ? (
+                        <motion.img 
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          src={p.image_url} 
+                          alt={p.title}
+                          style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            objectFit: 'cover',
+                            opacity: 0.8
+                          }} 
+                        />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.1)' }}>
+                          <Layout size={64} />
+                        </div>
+                      )}
                       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, transparent 40%, #020205 100%)` }} />
                       
                       {/* Floating Icon Overlay */}
@@ -259,7 +300,7 @@ export default function PortfolioPage() {
                     {/* Content Data */}
                     <div style={{ padding: '40px' }}>
                       <h3 style={{ fontSize: '26px', fontWeight: 800, color: '#fff', marginBottom: '16px', letterSpacing: '-0.5px' }}>{p.title}</h3>
-                      <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: '32px' }}>{p.desc}</p>
+                      <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: '32px', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{p.description}</p>
                       
                       <div style={{ 
                         display: 'inline-flex', alignItems: 'center', gap: '8px', 

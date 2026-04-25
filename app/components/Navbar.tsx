@@ -51,6 +51,7 @@ export default function Navbar() {
     { label: 'Services', href: '/services', hasDropdown: true },
     { label: 'Portfolio', href: '/portfolio' },
     { label: 'Testimonials', href: '/testimonials' },
+    { label: 'Careers', href: '/careers' },
   ];
 
   const isServicesActive = pathname.startsWith('/services');

@@ -1,68 +1,20 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Star, Quote, ArrowRight, Zap, Target, TrendingUp, Users } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
+import { supabase } from '../../lib/supabase';
 
-const testimonials = [
-  { 
-    id: 1, 
-    name: 'Ahmed Raza', 
-    role: 'CEO, TechVentures PK', 
-    text: 'SoftCodec completely transformed our business. The website they built increased our conversions by 340% in the first month! Their team is professional, fast, and highly skilled.',
-    rating: 5,
-    avatar: 'AR',
-    accent: '#7c3aed'
-  },
-  { 
-    id: 2, 
-    name: 'Sarah Jenkins', 
-    role: 'Marketing Director, GlobalFlow', 
-    text: 'Working with SoftCodec was a game changer for our mobile app. The AI-integrated features they developed have set us light years ahead of our competitors.',
-    rating: 5,
-    avatar: 'SJ',
-    accent: '#06b6d4'
-  },
-  { 
-    id: 3, 
-    name: 'Umer Khan', 
-    role: 'Owner, PureBazaar', 
-    text: 'The headless e-commerce store SoftCodec built for us is incredibly fast. Our customers love the new experience, and our sales have never been higher.',
-    rating: 5,
-    avatar: 'UK',
-    accent: '#ec4899'
-  },
-  { 
-    id: 4, 
-    name: 'David Miller', 
-    role: 'CTO, DataSecure', 
-    text: 'Our cloud migration was seamless thanks to the SoftCodec DevOps team. Zero downtime and a significant reduction in our monthly cloud spend.',
-    rating: 5,
-    avatar: 'DM',
-    accent: '#10b981'
-  },
-  { 
-    id: 5, 
-    name: 'Zainab Bibi', 
-    role: 'Product Manager, CreativeStudio', 
-    text: 'The UI/UX design team at SoftCodec is world-class. They took our vague ideas and turned them into a stunning, intuitive interface that users love.',
-    rating: 5,
-    avatar: 'ZB',
-    accent: '#f59e0b'
-  },
-  { 
-    id: 6, 
-    name: 'Robert Wilson', 
-    role: 'Founder, StartupX', 
-    text: 'From seed-stage MVP to a scalable product, SoftCodec has been our trusted technical partner. Their insight goes beyond just writing code.',
-    rating: 5,
-    avatar: 'RW',
-    accent: '#8b5cf6'
-  }
-];
+const getInitials = (name: string) => {
+  if (!name) return 'U';
+  const parts = name.split(' ');
+  if (parts.length > 1) return (parts[0][0] + parts[1][0]).toUpperCase();
+  return name[0].toUpperCase();
+};
 
 const metrics = [
   { icon: TrendingUp, val: '340%', label: 'Avg. Conversion Lift', color: '#7c3aed' },
@@ -72,6 +24,34 @@ const metrics = [
 ];
 
 export default function TestimonialsPage() {
+  const [testimonials, setTestimonials] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('testimonials')
+        .select('*')
+        .eq('status', 'Published')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setTestimonials(data || []);
+    } catch (error) {
+      console.error('Error fetching testimonials:', error);
+    }
+  };
+
+  const t0 = testimonials[0];
+  const t1 = testimonials[1];
+  const t2 = testimonials[2];
+  const t3 = testimonials[3];
+  const t4 = testimonials[4];
+  const t5 = testimonials[5];
+
   return (
     <div style={{ background: '#ffffff', color: '#0f172a' }}>
       <ScrollProgress />
@@ -195,6 +175,7 @@ export default function TestimonialsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               
               {/* Card 1: Vertical Centered */}
+              {t4 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -209,20 +190,24 @@ export default function TestimonialsPage() {
                   boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', color: '#fbbf24', fontSize: '14px', marginBottom: '16px' }}>★★★★★</div>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', color: '#fbbf24', fontSize: '14px', marginBottom: '16px' }}>
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill={i < t4.rating ? 'currentColor' : 'transparent'} color={i < t4.rating ? 'currentColor' : 'rgba(255,255,255,0.2)'} />)}
+                </div>
                 <h3 style={{ color: '#fff', fontSize: '20px', fontWeight: 700, lineHeight: 1.4, marginBottom: '20px' }}>
-                  World-class engineering and intuitive design!
+                  {t4.content}
                 </h3>
                 <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBottom: '24px' }}>
                    <span style={{ background: 'rgba(16,185,129,0.1)', color: '#10b981', padding: '4px 12px', borderRadius: '100px', fontSize: '11px', fontWeight: 800 }}>Fast delivery</span>
                    <span style={{ background: 'rgba(16,185,129,0.1)', color: '#10b981', padding: '4px 12px', borderRadius: '100px', fontSize: '11px', fontWeight: 800 }}>Perfect</span>
                 </div>
                 <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px' }}>
-                  - @{testimonials[4].name.replace(' ', '')} -
+                  - @{t4.name.replace(/\s+/g, '')} -
                 </p>
               </motion.div>
+              )}
 
               {/* Card 2: Wide Dark Horizontal */}
+              {t5 && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -235,18 +220,21 @@ export default function TestimonialsPage() {
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <div style={{ display: 'flex', gap: '4px', color: '#fbbf24', fontSize: '14px' }}>★★★★★</div>
+                <div style={{ display: 'flex', gap: '4px', color: '#fbbf24', fontSize: '14px' }}>
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill={i < t5.rating ? 'currentColor' : 'transparent'} color={i < t5.rating ? 'currentColor' : 'rgba(255,255,255,0.2)'} />)}
+                </div>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: 1.6, margin: '16px 0 24px' }}>
-                  {testimonials[5].text}
+                  {t5.content}
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ background: 'rgba(16,185,129,0.15)', color: '#10b981', padding: '6px 16px', borderRadius: '100px', fontSize: '11px', fontWeight: 800 }}>Great service</span>
                   <div style={{ textAlign: 'right' }}>
-                    <h4 style={{ color: '#fff', fontSize: '13px', fontWeight: 700 }}>{testimonials[5].name}</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px' }}>{testimonials[5].role}</p>
+                    <h4 style={{ color: '#fff', fontSize: '13px', fontWeight: 700 }}>{t5.name}</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px' }}>{t5.role}</p>
                   </div>
                 </div>
               </motion.div>
+              )}
 
             </div>
 
@@ -254,6 +242,7 @@ export default function TestimonialsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '20px' }}>
               
               {/* Card 3: The Main Feature Block */}
+              {t0 && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -273,27 +262,29 @@ export default function TestimonialsPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, #7c3aed, #06b6d4)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, border: '2px solid rgba(255,255,255,0.2)' }}>
-                      {testimonials[0].avatar}
+                      {getInitials(t0.name)}
                     </div>
                     <div>
-                      <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 700 }}>{testimonials[0].name}</h4>
-                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px' }}>{testimonials[0].role}</p>
+                      <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 700 }}>{t0.name}</h4>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px' }}>{t0.role}</p>
                     </div>
                   </div>
                   <div style={{ background: '#10b981', color: '#fff', padding: '4px 10px', borderRadius: '100px', fontSize: '10px', letterSpacing: '2px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    ★★★★★
+                    {[...Array(5)].map((_, i) => <Star key={i} size={10} fill={i < t0.rating ? 'currentColor' : 'transparent'} />)}
                   </div>
                 </div>
                 
                 <h2 style={{ color: '#fff', fontSize: '32px', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px', letterSpacing: '-0.5px' }}>
-                  Increased conversions by 340% in the first month!
+                  Superb quality, extremely professional team!
                 </h2>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px' }}>
-                  Superb quality, extremely professional team. SoftCodec completely transformed our business trajectory.
+                  {t0.content}
                 </p>
               </motion.div>
+              )}
 
               {/* Card 4: Dark Review Style */}
+              {t2 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -306,16 +297,19 @@ export default function TestimonialsPage() {
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px', textAlign: 'right', marginBottom: '16px' }}>@purebazaar • 12h</p>
-                <h3 style={{ color: '#fff', fontSize: '28px', fontWeight: 800, marginBottom: '16px' }}>Lightning Fast</h3>
+                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px', textAlign: 'right', marginBottom: '16px' }}>@{t2.company.replace(/\s+/g, '')} • {new Date(t2.created_at).toLocaleDateString()}</p>
+                <h3 style={{ color: '#fff', fontSize: '28px', fontWeight: 800, marginBottom: '16px' }}>{t2.name}</h3>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: 1.7, marginBottom: '32px' }}>
-                  {testimonials[2].text}
+                  {t2.content}
                 </p>
                 <div style={{ textAlign: 'right', display: 'flex', justifyContent: 'flex-end', gap: '8px', alignItems: 'center' }}>
-                  <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px' }}>★★★★★</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px' }}>(5.0)</span>
+                  <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', display: 'flex' }}>
+                    {[...Array(5)].map((_, i) => <Star key={i} size={12} fill={i < t2.rating ? 'currentColor' : 'transparent'} color={i < t2.rating ? 'currentColor' : 'rgba(255,255,255,0.2)'} />)}
+                  </span>
+                  <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px' }}>({t2.rating}.0)</span>
                 </div>
               </motion.div>
+              )}
 
             </div>
 
@@ -323,6 +317,7 @@ export default function TestimonialsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '-20px' }}>
               
               {/* Card 5: Quote Top */}
+              {t1 && (
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -337,18 +332,25 @@ export default function TestimonialsPage() {
               >
                 <h1 style={{ color: 'rgba(255,255,255,0.1)', fontSize: '50px', lineHeight: 0.5, margin: 0, padding: 0 }}>&quot;</h1>
                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', fontStyle: 'italic', lineHeight: 1.6, margin: '16px 0 24px' }}>
-                  {testimonials[1].text}
+                  {t1.content}
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', gap: '2px', color: 'rgba(255,255,255,0.3)', fontSize: '12px' }}>★★★★★ <span style={{marginLeft: '4px'}}>(5/5)</span></div>
+                  <div style={{ display: 'flex', gap: '2px', color: 'rgba(255,255,255,0.3)', fontSize: '12px' }}>
+                    {[...Array(5)].map((_, i) => <Star key={i} size={10} fill={i < t1.rating ? 'currentColor' : 'transparent'} color={i < t1.rating ? 'currentColor' : 'rgba(255,255,255,0.2)'} />)}
+                    <span style={{marginLeft: '4px'}}>({t1.rating}/5)</span>
+                  </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                     <h4 style={{ color: '#fff', fontSize: '12px' }}>{testimonials[1].name}</h4>
-                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#06b6d4', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#fff' }}>{testimonials[1].avatar}</div>
+                     <h4 style={{ color: '#fff', fontSize: '12px' }}>{t1.name}</h4>
+                     <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#06b6d4', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#fff' }}>
+                       {getInitials(t1.name)}
+                     </div>
                   </div>
                 </div>
               </motion.div>
+              )}
 
               {/* Card 6: Square Image Overlap Highlight */}
+              {t3 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -372,17 +374,18 @@ export default function TestimonialsPage() {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: '#fff', fontSize: '24px', fontWeight: 800
                 }}>
-                  {testimonials[3].avatar}
+                  {getInitials(t3.name)}
                 </div>
-                <h3 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, marginBottom: '12px' }}>Zero Downtime</h3>
+                <h3 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, marginBottom: '12px' }}>Highly Recommended</h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', lineHeight: 1.6 }}>
-                  {testimonials[3].text}
+                  {t3.content}
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '32px', color: 'rgba(255,255,255,0.4)', fontSize: '12px' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>♥ 1,914</span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>👁 21.7k</span>
                 </div>
               </motion.div>
+              )}
 
             </div>
           </div>

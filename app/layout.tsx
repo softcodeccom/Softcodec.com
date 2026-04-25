@@ -10,9 +10,7 @@ export const metadata: Metadata = {
   description: "SoftCodec is Pakistan's #1 software house — delivering world-class web apps, mobile apps, AI solutions, and digital experiences that transform businesses.",
 };
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import CookieConsent from './components/CookieConsent';
+import PublicLayoutWrapper from './components/PublicLayoutWrapper';
 
 export default function RootLayout({
   children,
@@ -33,13 +31,10 @@ export default function RootLayout({
         <IntroScan />
         <ConsoleFilter />
         <ScrollReveal />
-        <AIAssistant />
-        <Navbar />
-        <main style={{ position: 'relative', zIndex: 1 }}>
+        
+        <PublicLayoutWrapper>
           {children}
-        </main>
-        <Footer />
-        <CookieConsent />
+        </PublicLayoutWrapper>
       </body>
     </html>
   );

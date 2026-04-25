@@ -1,30 +1,77 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, ShieldCheck, Zap, Globe, Target, ChevronRight, LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, ChevronRight, LineChart, Smartphone, Bot, ShoppingBag, Cloud, PenTool, Layout, Loader2, Shield, Zap, Globe } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import ScrollProgress from '../../components/ScrollProgress';
 import CursorGlow from '../../components/CursorGlow';
+import { supabase } from '../../../lib/supabase';
 
-const projects = [
-  { id: 1, category: 'Web Development', title: 'NexTrade AI Platform', desc: 'A sophisticated dashboard for AI-powered crypto trading with real-time analytics.', icon: LineChart, color: '#7c3aed', image: '/laptop-dashboard.png', fullDesc: 'NexTrade is an enterprise-grade AI trading platform designed for high-frequency crypto markets. It utilizes advanced machine learning models to predict market trends with 85% accuracy. The frontend is built with Next.js for blazing fast performance, while the backend utilizes a distributed microservices architecture on AWS.', tech: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'AWS Lambda', 'Python AI'], results: ['0.4s Average Load Time', '200% User Growth', 'Ironclad Security'] },
-  { id: 2, category: 'Mobile Apps', title: 'HealthSync Wellness', desc: 'React Native fitness app with real-time biometric tracking and AI workout plans.', icon: Smartphone, color: '#06b6d4', image: '/Placehunter - Mobile App UX_UI.png', fullDesc: 'HealthSync revolutionizes personal fitness by integrating real-time biometric data from wearable devices. The app uses AI to generate personalized workout plans that adapt to your body\'s recovery state. Built with React Native, it offers a seamless experience across both iOS and Android platforms.', tech: ['React Native', 'Expo', 'Node.js', 'PostgreSQL', 'TensorFlow Lite'], results: ['1M+ Downloads', '4.9 App Store Rating', '99.9% Uptime'] },
-  { id: 3, category: 'AI & Automation', title: 'SmartRetail Pro', desc: 'AI-driven inventory forecasting and automated restocking system for global retailers.', icon: Bot, color: '#ec4899', image: '/Concept of cloud computing technology isometric illustration by generative ai _ Premium AI-generated image-Photoroom.png', fullDesc: 'SmartRetail Pro optimizes supply chains for global retail chains. By analyzing historical sales data and current market trends, it predicts inventory needs with extreme precision, reducing waste by 30% and ensuring products are always in stock when customers need them.', tech: ['FastAPI', 'MongoDB', 'Redis', 'Docker', 'Kubernetes'], results: ['30% Waste Reduction', '40% Cost Savings', 'Real-time Sync'] },
-  { id: 4, category: 'E-Commerce', title: 'PureBazaar Store', desc: 'High-performing headless e-commerce store with 0.8s load time and 20% conversion boost.', icon: ShoppingBag, color: '#10b981', image: '/Os 6 E-commerces Mais Confiáveis do Brasil 2025 🛒✨-Photoroom.png', fullDesc: 'PureBazaar is a headless e-commerce masterpiece. By decoupling the frontend from the Shopify backend, we achieved unprecedented loading speeds and a highly customized user experience that drives massive conversions. The architectural design focuses on mobile-first navigation and sub-second checkout.', tech: ['Shopify Headless', 'Hydrogen', 'Remix', 'TailwindCSS', 'Sanity CMS'], results: ['20% Conversion Boost', '0.8s Load Time', 'Mobile-First Design'] },
-  { id: 5, category: 'Cloud & DevOps', title: 'SecureStack Cloud', desc: 'Enterprise-grade cloud migration for a major bank with zero downtime and 40% cost saving.', icon: Cloud, color: '#3b82f6', image: '/Multi-Cloud Adoption in 2025_ Strategies, Benefits & Enterprise Challenges-Photoroom.png', fullDesc: 'SecureStack handled the complex cloud migration for a leading financial institution. We implemented a multi-cloud strategy that ensures zero downtime and provides ironclad security for sensitive banking data. The automation pipelines reduced operational overhead by 40% while improving deployment frequency.', tech: ['Terraform', 'AWS', 'Azure', 'Jenkins', 'Vault'], results: ['Zero Downtime Migration', '40% Overhead Reduction', 'Bank-Grade Security'] },
-  { id: 6, category: 'UI/UX Design', title: 'ZenSpace Mobile UI', desc: 'Minimalist meditation app design focused on reducing cognitive load and maximizing calm.', icon: PenTool, color: '#f59e0b', image: '/3d uiux mobile screen with user elements _ Premium Photo-Photoroom.png', fullDesc: 'ZenSpace is a masterclass in minimalist design. Every interaction is engineered to reduce stress and maximize focus. We utilized soft gradients, glassmorphism, and subtle micro-animations to create an immersive environment that guides users toward tranquility.', tech: ['Figma', 'Adobe After Effects', 'Protopie', 'Spline 3D', 'Next.js'], results: ['User Fatigue -60%', 'Session Length +45%', 'Award-Winning UI'] },
-];
-
-const BRAND_COLOR = "#7c3aed";
+const getCategoryAssets = (category: string) => {
+  switch (category) {
+    case 'Web Development': return { icon: LineChart, color: '#7c3aed' };
+    case 'Mobile Apps': return { icon: Smartphone, color: '#06b6d4' };
+    case 'SaaS': return { icon: Cloud, color: '#3b82f6' };
+    case 'AI & Automation': return { icon: Bot, color: '#ec4899' };
+    case 'E-Commerce': return { icon: ShoppingBag, color: '#10b981' };
+    case 'UI/UX Design': return { icon: PenTool, color: '#f59e0b' };
+    default: return { icon: Layout, color: '#94a3b8' };
+  }
+};
 
 export default function ProjectDetailPage() {
   const params = useParams();
-  const id = parseInt(params.id as string);
-  const project = projects.find(p => p.id === id);
+  const id = params.id as string;
 
-  if (!project) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Project Not Found</div>;
+  const [project, setProject] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    if (id) fetchProject();
+  }, [id]);
+
+  const fetchProject = async () => {
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error || !data) {
+      setNotFound(true);
+    } else {
+      setProject(data);
+    }
+    setLoading(false);
+  };
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
+        <Loader2 size={40} style={{ animation: 'spin 1s linear infinite', color: '#7c3aed' }} />
+        <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
+
+  if (notFound || !project) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#0f172a', gap: '24px' }}>
+        <h1 style={{ fontSize: '48px', fontWeight: 900 }}>404</h1>
+        <p style={{ color: '#64748b', fontSize: '18px' }}>Project not found</p>
+        <Link href="/portfolio" style={{ padding: '14px 32px', background: '#7c3aed', color: '#fff', borderRadius: '100px', textDecoration: 'none', fontWeight: 700 }}>
+          ← Back to Portfolio
+        </Link>
+      </div>
+    );
+  }
+
+  const { icon: Icon, color } = getCategoryAssets(project.category);
+  const techStack = Array.isArray(project.tech_stack) ? project.tech_stack : [];
 
   return (
     <div style={{ background: '#ffffff', color: '#0f172a', overflowX: 'hidden' }}>
@@ -35,112 +82,166 @@ export default function ProjectDetailPage() {
       {/* ─── 1. CASE STUDY HERO ─── */}
       <section style={{ paddingTop: '140px', paddingBottom: '100px', background: '#f8fafc', borderBottom: '1px solid #f1f5f9' }}>
         <div className="container">
-          <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#64748b', textDecoration: 'none', fontSize: '14px', fontWeight: 700, marginBottom: '48px', transition: 'color 0.3s' }}>
+          <Link href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#64748b', textDecoration: 'none', fontSize: '14px', fontWeight: 700, marginBottom: '48px' }}>
             <ArrowLeft size={16} /> Back to Arsenal
           </Link>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '80px', alignItems: 'center' }}>
-             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: `${project.color}10`, border: `1px solid ${project.color}20`, borderRadius: '100px', padding: '8px 20px', marginBottom: '32px' }}>
-                  <project.icon size={14} color={project.color} />
-                  <span style={{ fontSize: '11px', fontWeight: 900, color: project.color, letterSpacing: '2px', textTransform: 'uppercase' }}>{project.category}</span>
-                </div>
-                <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', fontWeight: 950, letterSpacing: '-3px', lineHeight: 1.1, marginBottom: '32px' }}>
-                  {project.title.split(' ').slice(0, -1).join(' ')} <br />
-                  <span style={{ color: project.color }}>{project.title.split(' ').pop()}</span>
-                </h1>
-                <p style={{ fontSize: '20px', color: '#475569', lineHeight: 1.7, marginBottom: '40px' }}>
-                  {project.desc}
-                </p>
-                <div style={{ display: 'flex', gap: '20px' }}>
-                   <Link href="/contact" className="btn-primary" style={{ padding: '18px 40px', background: project.color, boxShadow: `0 20px 40px ${project.color}30` }}>
-                      Initiate Similar Build <ChevronRight size={18} />
-                   </Link>
-                </div>
-             </motion.div>
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: `${color}10`, border: `1px solid ${color}20`, borderRadius: '100px', padding: '8px 20px', marginBottom: '32px' }}>
+                <Icon size={14} color={color} />
+                <span style={{ fontSize: '11px', fontWeight: 900, color, letterSpacing: '2px', textTransform: 'uppercase' }}>{project.category}</span>
+              </div>
+              <h1 style={{ fontSize: 'clamp(40px, 6vw, 72px)', fontWeight: 950, letterSpacing: '-3px', lineHeight: 1.1, marginBottom: '32px' }}>
+                {project.title.split(' ').slice(0, -1).join(' ')} <br />
+                <span style={{ color }}>{project.title.split(' ').pop()}</span>
+              </h1>
+              <p style={{ fontSize: '20px', color: '#475569', lineHeight: 1.7, marginBottom: '40px' }}>
+                {project.description}
+              </p>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <Link href="/contact" className="btn-primary" style={{ padding: '18px 40px', background: color, boxShadow: `0 20px 40px ${color}30`, display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', borderRadius: '100px', color: '#fff', fontWeight: 800 }}>
+                  Initiate Similar Build <ChevronRight size={18} />
+                </Link>
+                {project.live_url && (
+                  <a href={project.live_url} target="_blank" rel="noopener noreferrer" style={{ padding: '18px 32px', border: '1px solid #e2e8f0', borderRadius: '100px', textDecoration: 'none', color: '#0f172a', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <ExternalLink size={16} /> Live Demo
+                  </a>
+                )}
+                {project.github_url && (
+                  <a href={project.github_url} target="_blank" rel="noopener noreferrer" style={{ padding: '18px 32px', border: '1px solid #e2e8f0', borderRadius: '100px', textDecoration: 'none', color: '#0f172a', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Github size={16} /> GitHub
+                  </a>
+                )}
+              </div>
+            </motion.div>
 
-             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-                <div style={{ position: 'relative', borderRadius: '40px', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.1)' }}>
-                   <img src={project.image} alt={project.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                   <div style={{ position: 'absolute', inset: 0, border: '1px solid rgba(0,0,0,0.05)', borderRadius: '40px' }} />
-                </div>
-             </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
+              <div style={{ position: 'relative', borderRadius: '40px', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.1)', background: '#f1f5f9' }}>
+                {project.image_url ? (
+                  <img src={project.image_url} alt={project.title} style={{ width: '100%', height: 'auto', display: 'block', minHeight: '300px', objectFit: 'cover' }} />
+                ) : (
+                  <div style={{ width: '100%', minHeight: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
+                    <Layout size={80} />
+                  </div>
+                )}
+                <div style={{ position: 'absolute', inset: 0, border: '1px solid rgba(0,0,0,0.05)', borderRadius: '40px' }} />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ─── 2. DEEP BRIEF & TECH ─── */}
+      {/* ─── 2. TECH STACK + DESCRIPTION ─── */}
       <section style={{ padding: '120px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '100px' }}>
-             <div>
-                <h2 style={{ fontSize: '32px', fontWeight: 900, marginBottom: '32px', letterSpacing: '-1px' }}>Project Narrative</h2>
-                <p style={{ fontSize: '18px', color: '#64748b', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
-                  {project.fullDesc}
-                </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '80px' }}>
+            <div>
+              <h2 style={{ fontSize: '32px', fontWeight: 900, marginBottom: '32px', letterSpacing: '-1px' }}>Project Overview</h2>
+              <p style={{ fontSize: '18px', color: '#64748b', lineHeight: 1.8 }}>
+                {project.description}
+              </p>
 
-                <div style={{ marginTop: '64px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px' }}>
-                   <div>
-                      <h4 style={{ fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '2px', marginBottom: '24px' }}>Key Results</h4>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        {project.results.map((r, i) => (
-                           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '16px', fontWeight: 700 }}>
-                              <ShieldCheck size={20} color="#10b981" /> {r}
-                           </div>
-                        ))}
-                      </div>
-                   </div>
-                   <div>
-                      <h4 style={{ fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '2px', marginBottom: '24px' }}>Infrastructure</h4>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                        {project.tech.map((t, i) => (
-                           <span key={i} style={{ padding: '8px 16px', background: '#f1f5f9', borderRadius: '100px', fontSize: '13px', fontWeight: 800 }}>{t}</span>
-                        ))}
-                      </div>
-                   </div>
+              {project.live_url && (
+                <div style={{ marginTop: '40px', padding: '24px', background: '#f8fafc', borderRadius: '20px', border: '1px solid #f1f5f9' }}>
+                  <p style={{ fontSize: '12px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>Live URL</p>
+                  <a href={project.live_url} target="_blank" rel="noopener noreferrer" style={{ color: color, fontWeight: 700, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Globe size={16} /> {project.live_url}
+                  </a>
                 </div>
-             </div>
+              )}
+            </div>
 
-             {/* SIDEBAR WIDGETS */}
-             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                <div style={{ padding: '40px', background: '#020205', borderRadius: '32px', color: '#fff' }}>
-                   <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '16px' }}>Ready for Scale?</h3>
-                   <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '32px', lineHeight: 1.6 }}>We can engineer a similar high-performance ecosystem for your brand.</p>
-                   <Link href="/contact" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '16px', background: '#fff', color: '#000', borderRadius: '100px', fontWeight: 800, textDecoration: 'none' }}>
-                      Start Engineering
-                   </Link>
+            <div>
+              <h2 style={{ fontSize: '32px', fontWeight: 900, marginBottom: '32px', letterSpacing: '-1px' }}>Tech Arsenal</h2>
+              {techStack.length > 0 ? (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                  {techStack.map((tech: string, i: number) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.08 }}
+                      viewport={{ once: true }}
+                      style={{
+                        padding: '10px 20px',
+                        background: `${color}10`,
+                        border: `1px solid ${color}25`,
+                        borderRadius: '100px',
+                        fontSize: '14px',
+                        fontWeight: 700,
+                        color: color
+                      }}
+                    >
+                      {tech}
+                    </motion.div>
+                  ))}
                 </div>
+              ) : (
+                <p style={{ color: '#94a3b8' }}>No tech stack specified.</p>
+              )}
 
-                <div style={{ padding: '40px', border: '1px solid #e2e8f0', borderRadius: '32px' }}>
-                   <h4 style={{ fontSize: '14px', fontWeight: 900, textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '2px', marginBottom: '24px' }}>Project Metrics</h4>
-                   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                      {[
-                        { label: 'Uptime', val: '99.9%', icon: <Globe size={18} /> },
-                        { label: 'Velocity', val: '0.4s LCP', icon: <Zap size={18} /> },
-                        { label: 'Growth', val: '+240%', icon: <Target size={18} /> },
-                      ].map((m, i) => (
-                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#64748b', fontWeight: 600 }}>{m.icon} {m.label}</div>
-                           <div style={{ fontWeight: 800 }}>{m.val}</div>
-                        </div>
-                      ))}
-                   </div>
-                </div>
-             </div>
+              {/* Status Badge */}
+              <div style={{ marginTop: '40px', padding: '24px', background: '#f8fafc', borderRadius: '20px', border: '1px solid #f1f5f9' }}>
+                <p style={{ fontSize: '12px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>Project Status</p>
+                <span style={{
+                  padding: '8px 20px',
+                  borderRadius: '100px',
+                  fontSize: '13px',
+                  fontWeight: 800,
+                  background: project.status === 'Published' ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)',
+                  color: project.status === 'Published' ? '#10b981' : '#f59e0b'
+                }}>
+                  {project.status}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── 3. CTA ─── */}
-      <section style={{ padding: '0 0 120px', textAlign: 'center' }}>
-         <div className="container">
-            <div style={{ padding: '80px', background: '#f8fafc', borderRadius: '60px', border: '1px solid #f1f5f9' }}>
-               <h2 style={{ fontSize: '40px', fontWeight: 950, letterSpacing: '-2px', marginBottom: '24px' }}>Next: Build Your <span className="gradient-text">Absolute Future.</span></h2>
-               <Link href="/portfolio" style={{ fontSize: '16px', fontWeight: 800, color: BRAND_COLOR, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  Explore More Systems <ArrowLeft style={{ transform: 'rotate(180deg)' }} size={20} />
-               </Link>
-            </div>
-         </div>
+      {/* ─── 3. HIGHLIGHTS ─── */}
+      <section style={{ padding: '120px 0', background: '#020205', borderRadius: '60px 60px 0 0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <h2 style={{ color: '#fff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 950, letterSpacing: '-2px' }}>
+              Why This <span className="gradient-text">Project Stands Out.</span>
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            {[
+              { icon: Zap, title: 'High Performance', desc: 'Engineered for speed, scalability, and enterprise-grade reliability.' },
+              { icon: Shield, title: 'Secure by Design', desc: 'Built with security best practices at every layer of the stack.' },
+              { icon: Globe, title: 'Global Ready', desc: 'Designed to scale internationally with multi-region architecture.' },
+            ].map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', padding: '40px' }}>
+                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: `${color}15`, color, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                  <item.icon size={24} />
+                </div>
+                <h3 style={{ color: '#fff', fontSize: '20px', fontWeight: 800, marginBottom: '12px' }}>{item.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 4. CTA ─── */}
+      <section style={{ padding: '140px 0', background: '#020205', textAlign: 'center' }}>
+        <div className="container">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <h2 style={{ color: '#fff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 950, letterSpacing: '-2px', marginBottom: '24px' }}>
+              Ready to Build <span className="gradient-text">Something Like This?</span>
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '18px', maxWidth: '600px', margin: '0 auto 48px' }}>
+              Let&apos;s partner up and create your next high-impact digital product.
+            </p>
+            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '20px 52px', background: `linear-gradient(135deg, #7c3aed, #06b6d4)`, borderRadius: '100px', color: '#fff', textDecoration: 'none', fontWeight: 900, fontSize: '18px', boxShadow: '0 20px 50px rgba(124,58,237,0.3)' }}>
+              Start Your Project <ChevronRight size={20} />
+            </Link>
+          </motion.div>
+        </div>
       </section>
     </div>
   );
