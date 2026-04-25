@@ -324,7 +324,7 @@ export default function CareersPage() {
                       <Target size={20} color="#a78bfa" /> Key Requirements
                     </h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                      {selectedJob.requirements.map((req, i) => (
+                      {selectedJob.requirements.map((req: string, i: number) => (
                         <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '20px', color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: 1.5 }}>
                           <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
                           {req}
