@@ -1,9 +1,14 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
+
+// Use service role key for admin routes to bypass RLS
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function GET() {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('jobs')
       .select('*')
       .order('created_at', { ascending: false });
@@ -18,7 +23,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('jobs')
       .insert([body])
       .select();
@@ -34,7 +39,7 @@ export async function PUT(request: Request) {
   try {
     const body = await request.json();
     const { id, ...updates } = body;
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('jobs')
       .update(updates)
       .eq('id', id)
@@ -54,7 +59,7 @@ export async function DELETE(request: Request) {
     
     if (!id) throw new Error('ID is required');
 
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from('jobs')
       .delete()
       .eq('id', id);

@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const CATEGORIES = ['Engineering', 'Design', 'Management', 'Marketing', 'Support'];
+const CATEGORIES = ['Engineering', 'Design', 'Management', 'Marketing', 'Support', 'Game'];
 const TYPES = ['Full-time', 'Part-time', 'Contract', 'Internship'];
 
 export default function AdminJobsPage() {
@@ -71,8 +71,11 @@ export default function AdminJobsPage() {
     setIsModalOpen(true);
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const payload = {
       ...formData,
       requirements: formData.requirements.split('\n').filter(r => r.trim() !== '')
@@ -88,9 +91,16 @@ export default function AdminJobsPage() {
       if (res.ok) {
         setIsModalOpen(false);
         fetchJobs();
+      } else {
+        const errorData = await res.json();
+        console.error('API Error:', errorData);
+        alert(`Error saving job: ${errorData.error || 'Unknown error'}`);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Save error:', err);
+      alert(`Request failed: ${err.message}`);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -305,9 +315,13 @@ export default function AdminJobsPage() {
 
                 <button 
                   type="submit"
-                  style={{ ...btnPrimaryStyle, width: '100%', padding: '18px', background: 'var(--admin-text)', color: 'var(--admin-bg)' }}
+                  disabled={isSubmitting}
+                  style={{ ...btnPrimaryStyle, width: '100%', padding: '18px', background: 'var(--admin-text)', color: 'var(--admin-bg)', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
                 >
-                  <Save size={20} /> {editingJob ? 'Save Modifications' : 'Initialize Mission'}
+                  {isSubmitting ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
+                  {editingJob 
+                    ? (isSubmitting ? 'Saving Modifications...' : 'Save Modifications') 
+                    : (isSubmitting ? 'Initializing Mission...' : 'Initialize Mission')}
                 </button>
               </form>
             </motion.div>
