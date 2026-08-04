@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Users, MessageSquare, Briefcase, Settings, LogOut, Code2, Moon, Sun, Menu, X, Loader2, GraduationCap } from 'lucide-react';
+import { LayoutDashboard, Users, MessageSquare, Briefcase, Settings, LogOut, Code2, Moon, Sun, Menu, X, Loader2, GraduationCap, Award } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { AdminThemeProvider, useAdminTheme } from './ThemeProvider';
 
@@ -16,6 +16,7 @@ function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val:
     { name: 'Projects', path: '/admin/projects', icon: Code2 },
     { name: 'Job Listings', path: '/admin/jobs', icon: Briefcase },
     { name: 'Applications', path: '/admin/careers', icon: GraduationCap },
+    { name: 'Internships', path: '/admin/internships', icon: Award },
     { name: 'Testimonials', path: '/admin/testimonials', icon: MessageSquare },
     { name: 'Leads / Contacts', path: '/admin/contacts', icon: Users },
     { name: 'Settings', path: '/admin/settings', icon: Settings },

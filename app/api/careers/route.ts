@@ -37,6 +37,9 @@ export async function POST(request: Request) {
 
     console.log('File uploaded successfully. URL:', publicUrl);
 
+    const isInternship = formData.get('is_internship') === 'true' || position?.toLowerCase().includes('intern');
+    const field = (formData.get('field') as string) || position;
+
     // 2. Save Application to Database
     console.log('Saving application to DB for:', email);
     const { error: dbError } = await supabase
@@ -51,7 +54,9 @@ export async function POST(request: Request) {
           experience,
           message,
           resume_url: publicUrl,
-          status: 'new'
+          status: 'new',
+          is_internship: isInternship,
+          field: isInternship ? field : null
         }
       ]);
 
