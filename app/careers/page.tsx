@@ -283,12 +283,10 @@ export default function CareersPage() {
                       <input name="phone" type="tel" placeholder="+92 3XX XXXXXXX" style={inputStyle} />
                     </div>
                     <div className="input-field">
-                      <label style={labelStyle}>Experience Level</label>
-                      <select name="experience" style={inputStyle}>
-                        <option value="Fresh">Fresh Graduate</option>
-                        <option value="1-2 Years">1 - 2 Years</option>
-                        <option value="3-5 Years">3 - 5 Years</option>
-                        <option value="5+ Years">Senior Veteran</option>
+                      <label style={labelStyle}>Application Type</label>
+                      <select name="is_internship" style={inputStyle} defaultValue={selectedJob?.type?.toLowerCase().includes('intern') ? 'true' : 'false'}>
+                        <option value="false">Full Time Job / Contract</option>
+                        <option value="true">🎓 2-Month Internship</option>
                       </select>
                     </div>
                   </div>

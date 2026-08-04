@@ -452,3 +452,168 @@ export const jobStatusUpdateEmail = (name: string, position: string, status: str
 </html>`
   };
 };
+
+// ──────────────────────────────────────────────
+// 8. INTERNSHIP STARTED → to intern
+// ──────────────────────────────────────────────
+export const internshipStartedEmail = (name: string, field: string, startDate: string, endDate: string) => ({
+  subject: `🚀 Internship Started: ${field} – SoftCodec`,
+  html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#f1f5f9; font-family:'Inter',Arial,sans-serif; }
+</style>
+</head>
+<body style="background:#f1f5f9; padding:32px 16px;">
+  <div style="max-width:580px; margin:0 auto;">
+    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,0.08); border:1px solid #e2e8f0;">
+      <div style="background:linear-gradient(135deg,#06b6d4 0%,#3b82f6 50%,#7c3aed 100%); padding:40px 40px 36px; text-align:center; position:relative; overflow:hidden;">
+        ${logo}
+        <div style="margin-top:28px;">
+          <div style="display:inline-block;width:56px;height:56px;background:rgba(255,255,255,0.2);border-radius:50%;line-height:56px;font-size:28px;margin-bottom:14px;">🚀</div>
+          <h1 style="color:#fff; font-size:24px; font-weight:800; margin-bottom:8px;">Internship Started!</h1>
+          <p style="color:rgba(255,255,255,0.9); font-size:15px;">Field: <strong>${field}</strong></p>
+        </div>
+      </div>
+      <div style="padding:40px;">
+        <p style="color:#1e293b; font-size:18px; font-weight:700; margin-bottom:16px;">Dear ${name},</p>
+        <p style="color:#64748b; font-size:15px; line-height:1.8; margin-bottom:24px;">
+          Congratulations! Your application has been approved and your <strong>2-Month Internship</strong> in <strong>${field}</strong> at <strong style="color:#7c3aed;">SoftCodec</strong> has officially started today!
+        </p>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-left:4px solid #06b6d4; border-radius:16px; padding:20px; margin-bottom:32px;">
+          <p style="color:#94a3b8; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Internship Timeline</p>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="color:#64748b; font-size:13px; font-weight:600;">Start Date:</span>
+            <span style="color:#0f172a; font-size:14px; font-weight:800;">${startDate}</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="color:#64748b; font-size:13px; font-weight:600;">Expected Completion:</span>
+            <span style="color:#10b981; font-size:14px; font-weight:800;">${endDate}</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#64748b; font-size:13px; font-weight:600;">Duration:</span>
+            <span style="color:#7c3aed; font-size:14px; font-weight:800;">2 Months</span>
+          </div>
+        </div>
+        <p style="color:#64748b; font-size:14px; line-height:1.7; margin-bottom:24px;">
+          We are excited to work with you. Work hard, build awesome projects, and turn your internship into a massive career step!
+        </p>
+        <p style="color:#94a3b8; font-size:13px; text-align:center;">
+          Have questions? Contact your supervisor or email us at <a href="mailto:softcodec.com@gmail.com" style="color:#7c3aed;text-decoration:none;font-weight:600;">softcodec.co</a>
+        </p>
+      </div>
+      <div style="padding:28px 40px; background:#1e293b; text-align:center;">
+        <div style="margin-bottom:18px;">${footerLinks}</div>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`
+});
+
+// ──────────────────────────────────────────────
+// 9. INTERNSHIP COMPLETED → to intern
+// ──────────────────────────────────────────────
+export const internshipCompletedEmail = (name: string, field: string) => ({
+  subject: `🎉 Internship Completed: ${field} – SoftCodec`,
+  html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#f1f5f9; font-family:'Inter',Arial,sans-serif; }
+</style>
+</head>
+<body style="background:#f1f5f9; padding:32px 16px;">
+  <div style="max-width:580px; margin:0 auto;">
+    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,0.08); border:1px solid #e2e8f0;">
+      <div style="background:linear-gradient(135deg,#10b981 0%,#059669 50%,#06b6d4 100%); padding:40px 40px 36px; text-align:center; position:relative; overflow:hidden;">
+        ${logo}
+        <div style="margin-top:28px;">
+          <div style="display:inline-block;width:56px;height:56px;background:rgba(255,255,255,0.2);border-radius:50%;line-height:56px;font-size:28px;margin-bottom:14px;">🎓</div>
+          <h1 style="color:#fff; font-size:24px; font-weight:800; margin-bottom:8px;">Internship Completed!</h1>
+          <p style="color:rgba(255,255,255,0.9); font-size:15px;">Field: <strong>${field}</strong></p>
+        </div>
+      </div>
+      <div style="padding:40px;">
+        <p style="color:#1e293b; font-size:18px; font-weight:700; margin-bottom:16px;">Dear ${name},</p>
+        <p style="color:#64748b; font-size:15px; line-height:1.8; margin-bottom:24px;">
+          Congratulations! You have successfully completed your <strong>2-Month Internship</strong> in <strong>${field}</strong> at <strong style="color:#7c3aed;">SoftCodec</strong>.
+        </p>
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:16px; padding:20px; text-align:center; margin-bottom:32px;">
+          <p style="color:#166534; font-size:15px; font-weight:800; margin-bottom:6px;">🏆 2 Months Milestone Achieved</p>
+          <p style="color:#15803d; font-size:13px;">Thank you for your dedication, hard work, and valuable contributions to SoftCodec.</p>
+        </div>
+        <p style="color:#64748b; font-size:14px; line-height:1.7; margin-bottom:24px;">
+          Your official Internship Completion Certificate is being processed and will be uploaded shortly by the Admin. You will receive an email as soon as it is ready for download!
+        </p>
+      </div>
+      <div style="padding:28px 40px; background:#1e293b; text-align:center;">
+        <div style="margin-bottom:18px;">${footerLinks}</div>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`
+});
+
+// ──────────────────────────────────────────────
+// 10. INTERNSHIP CERTIFICATE → to intern
+// ──────────────────────────────────────────────
+export const internshipCertificateEmail = (name: string, field: string, certificateUrl: string) => ({
+  subject: `📜 Your Internship Completion Certificate: ${field} – SoftCodec`,
+  html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#f1f5f9; font-family:'Inter',Arial,sans-serif; }
+</style>
+</head>
+<body style="background:#f1f5f9; padding:32px 16px;">
+  <div style="max-width:580px; margin:0 auto;">
+    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,0.08); border:1px solid #e2e8f0;">
+      <div style="background:linear-gradient(135deg,#7c3aed 0%,#4f46e5 50%,#06b6d4 100%); padding:40px 40px 36px; text-align:center; position:relative; overflow:hidden;">
+        ${logo}
+        <div style="margin-top:28px;">
+          <div style="display:inline-block;width:60px;height:60px;background:rgba(255,255,255,0.2);border-radius:50%;line-height:60px;font-size:32px;margin-bottom:14px;">🎖️</div>
+          <h1 style="color:#fff; font-size:24px; font-weight:800; margin-bottom:8px;">Completion Certificate</h1>
+          <p style="color:rgba(255,255,255,0.9); font-size:15px;">Field: <strong>${field}</strong></p>
+        </div>
+      </div>
+      <div style="padding:40px;">
+        <p style="color:#1e293b; font-size:18px; font-weight:700; margin-bottom:16px;">Dear ${name},</p>
+        <p style="color:#64748b; font-size:15px; line-height:1.8; margin-bottom:28px;">
+          We are delighted to present your official <strong>Internship Completion Certificate</strong> for completing your internship in <strong>${field}</strong> at <strong style="color:#7c3aed;">SoftCodec</strong>.
+        </p>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:20px; padding:24px; text-align:center; margin-bottom:32px;">
+          <p style="color:#1e293b; font-size:14px; font-weight:800; margin-bottom:16px;">Your Verified Certificate is Ready!</p>
+          <a href="${certificateUrl}" target="_blank" download style="display:inline-block; background:linear-gradient(135deg,#7c3aed,#06b6d4); color:#fff; text-decoration:none; padding:16px 40px; border-radius:100px; font-size:15px; font-weight:800; box-shadow:0 8px 25px rgba(124,58,237,0.35);">
+            ⬇️ Download Certificate
+          </a>
+          <p style="color:#94a3b8; font-size:12px; margin-top:12px;">Click the button above to download or view your certificate</p>
+        </div>
+        <p style="color:#64748b; font-size:14px; line-height:1.7; margin-bottom:24px;">
+          We wish you tremendous success in your future endeavors. Feel free to add this achievement to your LinkedIn profile and resume!
+        </p>
+        <p style="color:#94a3b8; font-size:13px; text-align:center;">
+          SoftCodec Team · <a href="${SITE}" style="color:#7c3aed;text-decoration:none;font-weight:600;">softcodec.co</a>
+        </p>
+      </div>
+      <div style="padding:28px 40px; background:#1e293b; text-align:center;">
+        <div style="margin-bottom:18px;">${footerLinks}</div>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`
+});
+
