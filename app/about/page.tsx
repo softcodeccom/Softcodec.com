@@ -156,38 +156,39 @@ export default function AboutPage() {
           </div>
 
           <div className="reveal-up" style={{
-            background: 'rgba(255, 255, 255, 0.02)',
+            background: 'rgba(255, 255, 255, 0.015)',
             border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderTop: '1px solid rgba(255, 255, 255, 0.2)',
-            borderRadius: '40px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.18)',
+            borderRadius: '36px',
             overflow: 'hidden',
-            backdropFilter: 'blur(30px)',
-            boxShadow: '0 40px 100px rgba(0,0,0,0.6)',
-            padding: 'clamp(32px, 5vw, 64px)'
+            backdropFilter: 'blur(24px)',
+            boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
+            padding: 'clamp(28px, 4.5vw, 56px)'
           }}>
-            <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(40px, 6vw, 80px)' }}>
+            <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(40px, 6vw, 70px)' }}>
               
-              {/* CEO Image Container */}
+              {/* CEO Portrait Column */}
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-                {/* Glow ring */}
+                {/* Subtle soft backdrop glow */}
                 <div style={{
-                  position: 'absolute', inset: '-12px',
-                  borderRadius: '36px',
-                  background: 'linear-gradient(135deg, rgba(124,58,237,0.5), rgba(6,182,212,0.4))',
-                  filter: 'blur(20px)',
-                  opacity: 0.6,
+                  position: 'absolute',
+                  inset: '-10px',
+                  borderRadius: '32px',
+                  background: 'linear-gradient(135deg, rgba(124,58,237,0.35), rgba(6,182,212,0.25))',
+                  filter: 'blur(28px)',
+                  opacity: 0.7,
                   zIndex: 0
                 }} />
 
                 <div style={{
                   position: 'relative',
                   width: '100%',
-                  maxWidth: '420px',
-                  borderRadius: '32px',
+                  maxWidth: '430px',
+                  borderRadius: '26px',
                   overflow: 'hidden',
-                  border: '2px solid rgba(255,255,255,0.15)',
-                  boxShadow: '0 25px 60px rgba(0,0,0,0.8)',
-                  background: '#0a0a14',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+                  background: '#07070d',
                   zIndex: 1
                 }}>
                   <img 
@@ -196,109 +197,137 @@ export default function AboutPage() {
                     style={{
                       width: '100%',
                       height: 'auto',
-                      maxHeight: '520px',
                       objectFit: 'cover',
                       display: 'block'
                     }}
                   />
-
-                  {/* Top-Right Verified Badge */}
-                  <div style={{
-                    position: 'absolute', top: '20px', right: '20px',
-                    display: 'flex', alignItems: 'center', gap: '6px',
-                    padding: '8px 16px', borderRadius: '100px',
-                    background: 'rgba(3, 3, 10, 0.85)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(16, 185, 129, 0.3)'
-                  }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }} />
-                    <span style={{ fontSize: '11px', fontWeight: 800, color: '#10b981', letterSpacing: '1px', textTransform: 'uppercase' }}>Verified Founder</span>
-                  </div>
-
-                  {/* Bottom Overlay Label */}
-                  <div style={{
-                    position: 'absolute', bottom: 0, left: 0, right: 0,
-                    padding: '28px 24px 20px',
-                    background: 'linear-gradient(to top, rgba(2, 2, 5, 0.95) 0%, rgba(2, 2, 5, 0.6) 70%, transparent 100%)',
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end'
-                  }}>
-                    <div>
-                      <div style={{ color: '#ffffff', fontSize: '20px', fontWeight: 900, letterSpacing: '-0.5px' }}>Salman Shoukat</div>
-                      <div style={{ color: '#a78bfa', fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '2px' }}>CEO & Founder</div>
-                    </div>
-                    <a 
-                      href="https://pk.linkedin.com/company/softcodec" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      style={{
-                        width: '38px', height: '38px', borderRadius: '12px',
-                        background: 'rgba(255,255,255,0.1)',
-                        border: '1px solid rgba(255,255,255,0.2)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: '#fff', textDecoration: 'none',
-                        transition: 'all 0.3s'
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = '#0077b5'; e.currentTarget.style.borderColor = '#0077b5'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
-                    >
-                      <Linkedin size={18} />
-                    </a>
-                  </div>
                 </div>
               </div>
 
-              {/* CEO Bio & Vision */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  <Quote size={28} color="#7c3aed" style={{ opacity: 0.7 }} />
-                  <span style={{ fontSize: '12px', fontWeight: 900, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '2px' }}>
-                    Chief Executive Officer
+              {/* CEO Bio & Details */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                
+                {/* Role Pill */}
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '5px 14px',
+                  borderRadius: '100px',
+                  background: 'rgba(6, 182, 212, 0.08)',
+                  border: '1px solid rgba(6, 182, 212, 0.25)',
+                  width: 'fit-content'
+                }}>
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#06b6d4', boxShadow: '0 0 8px #06b6d4' }} />
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                    Founder & CEO
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 950, color: '#ffffff', letterSpacing: '-1px', lineHeight: 1.15 }}>
-                  Salman <span className="gradient-text">Shoukat</span>
-                </h3>
+                {/* Name & Title */}
+                <div>
+                  <h3 style={{ fontSize: 'clamp(30px, 4vw, 42px)', fontWeight: 950, color: '#ffffff', letterSpacing: '-1.2px', lineHeight: 1.1, margin: 0 }}>
+                    Salman <span className="gradient-text">Shoukat</span>
+                  </h3>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: '14px', fontWeight: 600, marginTop: '6px', letterSpacing: '0.3px' }}>
+                    Chief Executive Officer · SoftCodec
+                  </p>
+                </div>
 
-                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '16.5px', lineHeight: 1.8, margin: 0 }}>
-                  Under Salman Shoukat&apos;s leadership, SoftCodec was founded in 2024 to redefine digital engineering standards. In just two short years, he has spearheaded the company into an international powerhouse delivering modern web ecosystems, AI platforms, and bespoke digital products for clients across 11+ countries.
+                {/* Description */}
+                <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '15.5px', lineHeight: 1.75, margin: 0 }}>
+                  Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. Overseeing elite engineers and designers, he leads the architecture of modern web ecosystems, bespoke digital platforms, and intelligent AI solutions for enterprise clients worldwide.
                 </p>
 
-                <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '15px', lineHeight: 1.8, margin: 0, fontStyle: 'italic', borderLeft: '3px solid #7c3aed', paddingLeft: '16px' }}>
-                  &ldquo;We don&apos;t build software to fill a contract; we engineer digital sovereignty. Our focus is absolute technical velocity, uncompromised code quality, and building long-lasting trust with every partner we touch.&rdquo;
-                </p>
+                {/* Quote Box */}
+                <div style={{
+                  padding: '16px 20px',
+                  background: 'rgba(255, 255, 255, 0.02)',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
+                  borderLeft: '3px solid #7c3aed',
+                  borderRadius: '14px'
+                }}>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', lineHeight: 1.65, margin: 0, fontStyle: 'italic' }}>
+                    &ldquo;We don&apos;t just build software to complete contracts — we engineer high-velocity digital solutions that empower companies with absolute reliability and long-term value.&rdquo;
+                  </p>
+                </div>
 
-                {/* Key Pillars Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '14px', marginTop: '10px' }}>
-                  <div style={{ padding: '16px 20px', borderRadius: '18px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ fontSize: '11px', color: '#a78bfa', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Leadership</div>
-                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: 800 }}>Founder & CEO</div>
+                {/* 3 Stats Strip */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '12px',
+                  marginTop: '4px'
+                }}>
+                  <div style={{ padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' }}>
+                    <div style={{ color: '#06b6d4', fontSize: '22px', fontWeight: 900, lineHeight: 1.1 }}>2+ Years</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Leadership</div>
                   </div>
-                  <div style={{ padding: '16px 20px', borderRadius: '18px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ fontSize: '11px', color: '#06b6d4', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Tenure</div>
-                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: 800 }}>Since 2024 (2 Years)</div>
+                  <div style={{ padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' }}>
+                    <div style={{ color: '#a78bfa', fontSize: '22px', fontWeight: 900, lineHeight: 1.1 }}>45+</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Projects Done</div>
                   </div>
-                  <div style={{ padding: '16px 20px', borderRadius: '18px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ fontSize: '11px', color: '#ec4899', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Projects Delivered</div>
-                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: 800 }}>45+ Completed</div>
-                  </div>
-                  <div style={{ padding: '16px 20px', borderRadius: '18px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <div style={{ fontSize: '11px', color: '#10b981', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Global Footprint</div>
-                    <div style={{ color: '#ffffff', fontSize: '15px', fontWeight: 800 }}>11+ Countries</div>
+                  <div style={{ padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' }}>
+                    <div style={{ color: '#10b981', fontSize: '22px', fontWeight: 900, lineHeight: 1.1 }}>11+</div>
+                    <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Countries</div>
                   </div>
                 </div>
 
-                {/* Direct Action */}
-                <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap', marginTop: '12px' }}>
-                  <Link href="/contact" className="btn-primary" style={{ padding: '14px 32px', fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                {/* Action Buttons Row */}
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
+                  <Link href="/contact" className="btn-primary" style={{ padding: '12px 28px', fontSize: '13.5px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <span>Connect with Leadership</span>
-                    <ChevronRight size={16} />
+                    <ChevronRight size={15} />
                   </Link>
-                  <a href="mailto:salmanshoukat@softcodec.co" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <Mail size={16} color="#06b6d4" />
+
+                  <a 
+                    href="mailto:salmanshoukat@softcodec.co" 
+                    style={{
+                      padding: '12px 20px',
+                      borderRadius: '100px',
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      color: 'rgba(255,255,255,0.85)',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      transition: 'all 0.3s'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(6,182,212,0.4)'; e.currentTarget.style.color = '#fff'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
+                  >
+                    <Mail size={15} color="#06b6d4" />
                     <span>salmanshoukat@softcodec.co</span>
                   </a>
+
+                  <a 
+                    href="https://pk.linkedin.com/company/softcodec" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    title="Connect on LinkedIn"
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'rgba(255,255,255,0.7)',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = '#0077b5'; e.currentTarget.style.borderColor = '#0077b5'; e.currentTarget.style.color = '#fff'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
+                  >
+                    <Linkedin size={16} />
+                  </a>
                 </div>
+
               </div>
 
             </div>
