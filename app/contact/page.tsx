@@ -169,51 +169,45 @@ export default function ContactPage() {
                 />
               </svg>
 
-              {/* Floating Orbiting Icons - Radius must match Arc (150) */}
+              {/* Floating Orbiting Icons (Static clean coordinates to eliminate SSR hydration mismatch) */}
               {[
-                { Icon: (props: any) => <span {...props}>🎧</span>, theta: 200 },
-                { Icon: (props: any) => <span {...props}>💬</span>, theta: 240 },
-                { Icon: (props: any) => <span {...props}>✉️</span>, theta: 270 },
-                { Icon: (props: any) => <span {...props}>📞</span>, theta: 300 },
-                { Icon: (props: any) => <span {...props}>@</span>, theta: 340 }
-              ].map((item, i) => {
-                const radius = 150;
-                const angle = (item.theta * Math.PI) / 180;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-                
-                return (
+                { icon: '🎧', left: 'calc(50% - 141px)', top: 'calc(50% - 51px)' },
+                { icon: '💬', left: 'calc(50% - 75px)', top: 'calc(50% - 130px)' },
+                { icon: '✉️', left: '50%', top: 'calc(50% - 150px)' },
+                { icon: '📞', left: 'calc(50% + 75px)', top: 'calc(50% - 130px)' },
+                { icon: '@', left: 'calc(50% + 141px)', top: 'calc(50% - 51px)' }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                  suppressHydrationWarning
+                  style={{
+                    position: 'absolute',
+                    left: item.left,
+                    top: item.top,
+                    width: '44px',
+                    height: '44px',
+                    background: '#fff',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '18px',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.02)',
+                    zIndex: 3,
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                >
                   <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
-                    style={{
-                      position: 'absolute',
-                      left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
-                      width: '44px',
-                      height: '44px',
-                      background: '#fff',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '18px',
-                      boxShadow: '0 10px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.02)',
-                      zIndex: 3,
-                      transform: 'translate(-50%, -50%)'
-                    }}
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
                   >
-                    <motion.div
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                    >
-                      <item.Icon />
-                    </motion.div>
+                    <span>{item.icon}</span>
                   </motion.div>
-                );
-              })}
+                </motion.div>
+              ))}
 
               {/* Background Glows */}
               <div style={{ position: 'absolute', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }} />
