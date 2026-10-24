@@ -344,10 +344,13 @@ export default function AboutPage() {
               {/* Description Paragraphs */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '15.5px', lineHeight: 1.8, margin: 0 }}>
-                  Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. Overseeing elite engineers and designers, he leads the architecture of modern web ecosystems, bespoke digital platforms, and intelligent AI solutions for enterprise clients worldwide.
+                  Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. As Founder &amp; CEO, he bridges deep technical software engineering with strategic product leadership, directing an elite team of developers and designers across enterprise web, mobile, and intelligent AI ecosystems.
                 </p>
-                <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '14.5px', lineHeight: 1.7, margin: 0 }}>
-                  Dedicated to zero-compromise engineering, Salman bridges ambitious visionary concepts with production-ready resilience — delivering scalable software infrastructure that powers global enterprises.
+                <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
+                  A hands-on technologist with deep expertise in full-stack architecture and cloud infrastructure, Salman personally guides the engineering standards and system blueprints for Tier-1 enterprise clients. His focus centers on building fault-tolerant distributed platforms, high-throughput backend services, and production-ready AI automations that solve complex business bottlenecks.
+                </p>
+                <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
+                  With over 45+ successful software deliverables deployed across 11+ countries, he instills a zero-compromise engineering culture at SoftCodec — ensuring every digital product is engineered for peak velocity, rock-solid security, and effortless global scale.
                 </p>
               </div>
 
@@ -367,19 +370,6 @@ export default function AboutPage() {
                 <p style={{ color: 'rgba(255, 255, 255, 0.72)', fontSize: '14px', lineHeight: 1.7, margin: 0, fontStyle: 'italic', fontWeight: 500 }}>
                   &ldquo;We don&apos;t just build software to complete contracts — we engineer high-velocity digital solutions that empower companies with absolute reliability and long-term value.&rdquo;
                 </p>
-              </div>
-
-              {/* Executive Focus Badges */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', paddingTop: '4px' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: 'rgba(255,255,255,0.6)', padding: '6px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  ⚡ Enterprise Architecture
-                </span>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: 'rgba(255,255,255,0.6)', padding: '6px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  🧠 Applied AI Systems
-                </span>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: 'rgba(255,255,255,0.6)', padding: '6px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  🌐 Global Delivery Standards
-                </span>
               </div>
 
             </div>
