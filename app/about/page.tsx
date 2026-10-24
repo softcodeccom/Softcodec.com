@@ -168,23 +168,23 @@ export default function AboutPage() {
               {/* Soft Ambient Radial Glow */}
               <div style={{
                 position: 'absolute',
-                width: '380px',
-                height: '380px',
+                width: '450px',
+                height: '450px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 70%)',
-                filter: 'blur(30px)',
+                background: 'radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 70%)',
+                filter: 'blur(35px)',
                 zIndex: 0
               }} />
 
               {/* Main Circular Frame */}
               <div style={{
                 position: 'relative',
-                width: 'min(410px, 85vw)',
-                height: 'min(410px, 85vw)',
+                width: 'min(475px, 90vw)',
+                height: 'min(475px, 90vw)',
                 borderRadius: '50%',
-                padding: '8px',
+                padding: '9px',
                 background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
-                boxShadow: '0 25px 60px rgba(124, 58, 237, 0.2), 0 10px 25px rgba(0,0,0,0.06)',
+                boxShadow: '0 30px 70px rgba(124, 58, 237, 0.22), 0 12px 30px rgba(0,0,0,0.06)',
                 zIndex: 1
               }}>
                 <div style={{
@@ -193,7 +193,7 @@ export default function AboutPage() {
                   borderRadius: '50%',
                   overflow: 'hidden',
                   background: '#f8fafc',
-                  border: '5px solid #ffffff'
+                  border: '6px solid #ffffff'
                 }}>
                   <img
                     src="/Salman Shoukat.jpeg"
@@ -280,8 +280,8 @@ export default function AboutPage() {
               </div>
 
               {/* Action Buttons Row */}
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
-                <Link href="/contact" className="btn-primary" style={{ padding: '14px 30px', fontSize: '13.5px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 6px 20px rgba(124,58,237,0.3)' }}>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
+                <Link href="/contact" className="btn-primary" style={{ padding: '13px 24px', fontSize: '13.5px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 6px 20px rgba(124,58,237,0.3)' }}>
                   <span>Connect with Leadership</span>
                   <ChevronRight size={15} />
                 </Link>
@@ -289,12 +289,12 @@ export default function AboutPage() {
                 <a
                   href="mailto:salmanshoukat@softcodec.co"
                   style={{
-                    padding: '13px 22px',
+                    padding: '12px 18px',
                     borderRadius: '100px',
                     background: '#f8fafc',
                     border: '1px solid #e2e8f0',
                     color: '#0f172a',
-                    fontSize: '13.5px',
+                    fontSize: '13px',
                     fontWeight: 700,
                     textDecoration: 'none',
                     display: 'inline-flex',
@@ -305,7 +305,7 @@ export default function AboutPage() {
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#7c3aed'; e.currentTarget.style.background = '#f5f3ff'; e.currentTarget.style.color = '#7c3aed'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.color = '#0f172a'; }}
                 >
-                  <Mail size={16} color="#7c3aed" />
+                  <Mail size={15} color="#7c3aed" />
                   <span>salmanshoukat@softcodec.co</span>
                 </a>
 
