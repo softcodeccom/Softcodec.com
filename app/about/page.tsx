@@ -19,29 +19,29 @@ const values = [
 ];
 
 const whyChooseUs = [
-  { 
-    title: 'Expert Sovereignty', 
-    desc: 'Our team consists of senior architects who have built systems for millions. We don\'t just code; we architect for global scalability.', 
-    icon: ShieldCheck, 
-    color: '#7c3aed' 
+  {
+    title: 'Expert Sovereignty',
+    desc: 'Our team consists of senior architects who have built systems for millions. We don\'t just code; we architect for global scalability.',
+    icon: ShieldCheck,
+    color: '#7c3aed'
   },
-  { 
-    title: 'Radical Transparency', 
-    desc: 'You have 24/7 access to our staging environments and codebase. No black boxes—just clear, absolute visibility into our progress.', 
-    icon: Activity, 
-    color: '#06b6d4' 
+  {
+    title: 'Radical Transparency',
+    desc: 'You have 24/7 access to our staging environments and codebase. No black boxes—just clear, absolute visibility into our progress.',
+    icon: Activity,
+    color: '#06b6d4'
   },
-  { 
-    title: 'Adaptive Strategy', 
-    desc: 'We use agile methodologies that actually work, pivoting with you as your market needs shift. Your success is our primary KPI.', 
-    icon: Layers, 
-    color: '#ec4899' 
+  {
+    title: 'Adaptive Strategy',
+    desc: 'We use agile methodologies that actually work, pivoting with you as your market needs shift. Your success is our primary KPI.',
+    icon: Layers,
+    color: '#ec4899'
   },
-  { 
-    title: 'Sustained Partnership', 
-    desc: 'We are your long-term technological allies. From the MVP to your first round of global expansion, we are with you every step.', 
-    icon: Handshake, 
-    color: '#10b981' 
+  {
+    title: 'Sustained Partnership',
+    desc: 'We are your long-term technological allies. From the MVP to your first round of global expansion, we are with you every step.',
+    icon: Handshake,
+    color: '#10b981'
   },
 ];
 
@@ -68,13 +68,13 @@ export default function AboutPage() {
       <section className="section" style={{ background: '#ffffff', position: 'relative', overflow: 'hidden', padding: '60px 0' }}>
         {/* Light accent glow */}
         <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
-        
+
         <div className="container">
-          <div className="reveal-up" style={{ 
-            position: 'relative', zIndex: 2, 
-            background: '#f8fafc', 
-            border: '1px solid rgba(0, 0, 0, 0.05)', 
-            borderRadius: '40px', 
+          <div className="reveal-up" style={{
+            position: 'relative', zIndex: 2,
+            background: '#f8fafc',
+            border: '1px solid rgba(0, 0, 0, 0.05)',
+            borderRadius: '40px',
             overflow: 'hidden',
             boxShadow: '0 40px 100px rgba(0,0,0,0.05)'
           }}>
@@ -85,7 +85,7 @@ export default function AboutPage() {
                 </div>
                 <h2 style={{ fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1, marginBottom: '32px', letterSpacing: '-1.5px' }}>
                   Rooted in <span style={{ color: '#7c3aed' }}>Excellence</span>,<br />
-                  <span style={{ 
+                  <span style={{
                     background: 'linear-gradient(90deg, #7c3aed, #06b6d4)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
@@ -116,14 +116,14 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="" style={{ flex: 1, position: 'relative', minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9' }}>
-                <motion.img 
-                  src="/about-hero-icon.png" 
-                  alt="Rotating Mission Icon" 
+                <motion.img
+                  src="/about-hero-icon.png"
+                  alt="Rotating Mission Icon"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  style={{ 
-                    width: '70%', 
-                    height: 'auto', 
+                  style={{
+                    width: '70%',
+                    height: 'auto',
                     display: 'block',
                     borderRadius: '50%',
                     mixBlendMode: 'multiply'
@@ -162,34 +162,57 @@ export default function AboutPage() {
       <section className="section" style={{ background: '#ffffff', position: 'relative', padding: '80px 0 110px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(40px, 6vw, 70px)' }}>
-            
-            {/* CEO Portrait Column */}
-            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+
+            {/* CEO Portrait Column (Circular Design like Image 2) */}
+            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              {/* Soft Ambient Radial Glow */}
+              <div style={{
+                position: 'absolute',
+                width: '380px',
+                height: '380px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 70%)',
+                filter: 'blur(30px)',
+                zIndex: 0
+              }} />
+
+              {/* Main Circular Frame */}
               <div style={{
                 position: 'relative',
-                width: '100%',
-                maxWidth: '430px',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                border: '1px solid #e2e8f0',
-                boxShadow: '0 20px 45px rgba(0,0,0,0.12)'
+                width: 'min(410px, 85vw)',
+                height: 'min(410px, 85vw)',
+                borderRadius: '50%',
+                padding: '8px',
+                background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
+                boxShadow: '0 25px 60px rgba(124, 58, 237, 0.2), 0 10px 25px rgba(0,0,0,0.06)',
+                zIndex: 1
               }}>
-                <img 
-                  src="/CEO.jpeg" 
-                  alt="Salman Shoukat - CEO & Founder of SoftCodec"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
+                <div style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  background: '#f8fafc',
+                  border: '5px solid #ffffff'
+                }}>
+                  <img
+                    src="/Salman Shoukat.jpeg"
+                    alt="Salman Shoukat - CEO & Founder of SoftCodec"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center 14%',
+                      display: 'block'
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
             {/* CEO Bio & Details (Light Theme on White) */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              
+
               {/* Role Pill */}
               <div style={{
                 display: 'inline-flex',
@@ -263,8 +286,8 @@ export default function AboutPage() {
                   <ChevronRight size={15} />
                 </Link>
 
-                <a 
-                  href="mailto:salmanshoukat@softcodec.co" 
+                <a
+                  href="mailto:salmanshoukat@softcodec.co"
                   style={{
                     padding: '13px 22px',
                     borderRadius: '100px',
@@ -286,9 +309,9 @@ export default function AboutPage() {
                   <span>salmanshoukat@softcodec.co</span>
                 </a>
 
-                <a 
-                  href="https://pk.linkedin.com/company/softcodec" 
-                  target="_blank" 
+                <a
+                  href="https://pk.linkedin.com/company/softcodec"
+                  target="_blank"
                   rel="noopener noreferrer"
                   title="Connect on LinkedIn"
                   style={{
@@ -326,10 +349,10 @@ export default function AboutPage() {
             <h2 className="section-heading" style={{ textAlign: 'center' }}>The SoftCodec <span className="gradient-text">Advantage</span></h2>
             <p className="section-subtext" style={{ marginTop: '16px', textAlign: 'center', margin: '16px auto 0' }}>The guiding principles that dictate every line of code we write.</p>
           </div>
-          
+
           <div className="grid-2" style={{ gap: '24px' }}>
             {values.map((v, i) => (
-              <div key={i} className="glass-card reveal-up" style={{ 
+              <div key={i} className="glass-card reveal-up" style={{
                 padding: '40px', background: '#020205', border: '1px solid rgba(255,255,255,0.05)', transitionDelay: `${i * 0.1}s`,
                 boxShadow: '0 20px 50px rgba(0,0,0,0.1)'
               }}>
@@ -352,15 +375,15 @@ export default function AboutPage() {
       {/* ─── 4. WHY CHOOSE US (CINEMATIC GLASSMorphism) ─── */}
       <section className="section" style={{ background: '#020205', position: 'relative', overflow: 'hidden', padding: '160px 0' }}>
         {/* Animated Background Accents */}
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
-          style={{ position: 'absolute', top: '10%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} 
+          style={{ position: 'absolute', top: '10%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }}
         />
-        <motion.div 
+        <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 12, repeat: Infinity }}
-          style={{ position: 'absolute', bottom: '10%', right: '10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} 
+          style={{ position: 'absolute', bottom: '10%', right: '10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }}
         />
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -377,16 +400,16 @@ export default function AboutPage() {
 
           <div className="grid-4" style={{ gap: '24px' }}>
             {whyChooseUs.map((item, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.8 }}
-                className="glass-card" 
-                style={{ 
-                  padding: '40px 32px', 
-                  background: 'rgba(255,255,255,0.02)', 
+                className="glass-card"
+                style={{
+                  padding: '40px 32px',
+                  background: 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(255,255,255,0.05)',
                   borderTop: '1px solid rgba(255,255,255,0.15)',
                   backdropFilter: 'blur(20px)',
@@ -416,30 +439,30 @@ export default function AboutPage() {
       {/* ─── 6. CINEMATIC CTA ─── */}
       <section className="section" style={{ background: '#020205', padding: '160px 0', position: 'relative', overflow: 'hidden' }}>
         {/* Deep Ambient Glow Orbs */}
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity }}
-          style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%)', filter: 'blur(120px)', zIndex: 0 }} 
+          style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%)', filter: 'blur(120px)', zIndex: 0 }}
         />
-        <motion.div 
+        <motion.div
           animate={{ scale: [1.3, 1, 1.3], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 10, repeat: Infinity }}
-          style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} 
+          style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }}
         />
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            style={{ 
-              background: 'rgba(255, 255, 255, 0.02)', 
+            style={{
+              background: 'rgba(255, 255, 255, 0.02)',
               border: '1px solid rgba(255, 255, 255, 0.05)',
               borderTop: '1px solid rgba(255, 255, 255, 0.15)',
-              backdropFilter: 'blur(40px)', 
+              backdropFilter: 'blur(40px)',
               WebkitBackdropFilter: 'blur(40px)',
-              borderRadius: '48px', 
+              borderRadius: '48px',
               padding: '100px 40px',
               textAlign: 'center',
               boxShadow: '0 50px 100px -20px rgba(0,0,0,0.8)',
@@ -448,34 +471,34 @@ export default function AboutPage() {
             }}
           >
             <div style={{ marginBottom: '32px' }}>
-              <span style={{ 
-                fontSize: '11px', 
-                fontWeight: 900, 
-                color: '#a78bfa', 
-                textTransform: 'uppercase', 
+              <span style={{
+                fontSize: '11px',
+                fontWeight: 900,
+                color: '#a78bfa',
+                textTransform: 'uppercase',
                 letterSpacing: '4px',
                 display: 'block',
                 marginBottom: '16px'
               }}>
                 Ready to Architect your expansion?
               </span>
-              <h2 style={{ 
+              <h2 style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(36px, 8vw, 68px)', 
-                fontWeight: 950, 
-                color: '#fff', 
-                lineHeight: 1.1, 
-                letterSpacing: '-3px' 
+                fontSize: 'clamp(36px, 8vw, 68px)',
+                fontWeight: 950,
+                color: '#fff',
+                lineHeight: 1.1,
+                letterSpacing: '-3px'
               }}>
                 Let's Build the <br />
                 <span className="gradient-text">Future, Together.</span>
               </h2>
             </div>
-            
-            <p style={{ 
-              color: 'rgba(255,255,255,0.45)', 
-              fontSize: 'clamp(18px, 2vw, 22px)', 
-              maxWidth: '650px', 
+
+            <p style={{
+              color: 'rgba(255,255,255,0.45)',
+              fontSize: 'clamp(18px, 2vw, 22px)',
+              maxWidth: '650px',
               margin: '0 auto 48px',
               lineHeight: 1.6
             }}>
