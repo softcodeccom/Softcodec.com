@@ -349,9 +349,6 @@ export default function AboutPage() {
                 <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
                   A hands-on technologist with deep expertise in full-stack architecture and cloud infrastructure, Salman personally guides the engineering standards and system blueprints for Tier-1 enterprise clients. His focus centers on building fault-tolerant distributed platforms, high-throughput backend services, and production-ready AI automations that solve complex business bottlenecks.
                 </p>
-                <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
-                  With over 45+ successful software deliverables deployed across 11+ countries, he instills a zero-compromise engineering culture at SoftCodec — ensuring every digital product is engineered for peak velocity, rock-solid security, and effortless global scale.
-                </p>
               </div>
 
               {/* Quote Box with decorative quote icon */}
