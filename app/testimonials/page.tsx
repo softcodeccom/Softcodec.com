@@ -17,10 +17,10 @@ const getInitials = (name: string) => {
 };
 
 const metrics = [
-  { icon: TrendingUp, val: '340%', label: 'Avg. Conversion Lift', color: '#7c3aed' },
-  { icon: Users, val: '99%', label: 'Client Satisfaction', color: '#06b6d4' },
-  { icon: Target, val: '150+', label: 'Successful Launches', color: '#ec4899' },
-  { icon: Zap, val: '4.9/5', label: 'Average Platform Rating', color: '#10b981' }
+  { icon: TrendingUp, val: '87%', label: 'Avg. Conversion Lift', color: '#7c3aed' },
+  { icon: Users, val: '98%', label: 'Client Satisfaction', color: '#06b6d4' },
+  { icon: Target, val: '18+', label: 'Successful Launches', color: '#ec4899' },
+  { icon: Zap, val: '4.67', label: 'Average Platform Rating', color: '#10b981' }
 ];
 
 export default function TestimonialsPage() {

@@ -51,7 +51,7 @@ export default function AboutHero() {
                 marginBottom: '32px' 
               }}>
                 <div className="system-dot" />
-                <span style={{ fontSize: '11px', fontWeight: 800, color: '#7c3aed', letterSpacing: '2px', textTransform: 'uppercase' }}>Established 2019</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, color: '#7c3aed', letterSpacing: '2px', textTransform: 'uppercase' }}>Since 2024 · 2 Years of Excellence</span>
               </div>
 
               <h1 style={{ 

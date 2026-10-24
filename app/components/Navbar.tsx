@@ -223,11 +223,11 @@ export default function Navbar() {
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <span style={{ fontSize: '16px' }}>⚡</span>
                         <span style={{ fontSize: '12px', color: 'rgba(15,23,42,0.6)', fontWeight: 600 }}>
-                          Architecting world-class software since <span style={{ color: '#7c3aed', fontWeight: 800 }}>2020</span>
+                          Architecting world-class software since <span style={{ color: '#7c3aed', fontWeight: 800 }}>2024</span>
                         </span>
                       </div>
                       <span style={{ fontSize: '11px', fontWeight: 700, color: 'rgba(6,182,212,0.8)', background: 'rgba(6,182,212,0.1)', padding: '4px 12px', borderRadius: '100px' }}>
-                        50+ Masterpieces Delivered
+                        45+ Masterpieces Delivered
                       </span>
                     </div>
                   </div>

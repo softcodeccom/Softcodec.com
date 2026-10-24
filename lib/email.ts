@@ -102,7 +102,7 @@ export const contactConfirmationEmail = (name: string, service: string) => ({
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -284,7 +284,7 @@ export const applicantConfirmationEmail = (name: string, position: string) => ({
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -331,7 +331,7 @@ export const newsletterConfirmationEmail = (email: string) => ({
       </div>
       <div style="padding:28px 40px;background:#1e293b;text-align:center;">
         <div style="margin-bottom:12px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4);font-size:12px;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4);font-size:12px;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -444,7 +444,7 @@ export const jobStatusUpdateEmail = (name: string, position: string, status: str
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -507,7 +507,7 @@ export const internshipStartedEmail = (name: string, field: string, startDate: s
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -555,7 +555,7 @@ export const internshipCompletedEmail = (name: string, field: string) => ({
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>
@@ -609,7 +609,7 @@ export const internshipCertificateEmail = (name: string, field: string, certific
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
         <div style="margin-bottom:18px;">${footerLinks}</div>
-        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan's #1 Tech Agency</p>
+        <p style="color:rgba(255,255,255,0.4); font-size:12px; margin:0;">© ${new Date().getFullYear()} SoftCodec · Pakistan IT & AI Agency</p>
       </div>
     </div>
   </div>

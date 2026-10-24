@@ -38,10 +38,10 @@ const faqs = [
 ];
 
 const statsData = [
-  { num: 250, label: 'Projects Completed', icon: 'Rocket', color: '#a78bfa', glow: 'rgba(167, 139, 250, 0.5)', delay: 0 },
-  { num: 30, label: 'Countries Served', icon: 'Globe', color: '#22d3ee', glow: 'rgba(34, 211, 238, 0.5)', delay: 200 },
-  { num: 98, label: 'Client Satisfaction', icon: 'Star', color: '#facc15', glow: 'rgba(250, 204, 21, 0.5)', delay: 400, suffix: '%' },
-  { num: 50, label: 'Elite Developers', icon: 'Zap', color: '#f472b6', glow: 'rgba(244, 114, 182, 0.5)', delay: 600 },
+  { num: 45, label: 'Projects Completed', icon: 'Rocket', color: '#a78bfa', glow: 'rgba(167, 139, 250, 0.5)', delay: 0 },
+  { num: 11, label: 'Countries Served', icon: 'Globe', color: '#22d3ee', glow: 'rgba(34, 211, 238, 0.5)', delay: 200 },
+  { num: 97, label: 'Client Satisfaction', icon: 'Star', color: '#facc15', glow: 'rgba(250, 204, 21, 0.5)', delay: 400, suffix: '%' },
+  { num: 10, label: 'Elite Developers', icon: 'Zap', color: '#f472b6', glow: 'rgba(244, 114, 182, 0.5)', delay: 600 },
 ];
 
 const caseStudies = [
@@ -613,12 +613,12 @@ export default function Home() {
             <div className="ring-3d-scene" style={{ height: '100%', transform: 'scale(1.2)' }}>
               <div className="ring-3d-object">
                 {[
-                  { id: 'US-EAST-1', country: 'United States', flag: '🇺🇸', clients: '80+ Clients', color: '#8b5cf6', percent: 85, status: 'Active' },
-                  { id: 'EU-WEST-2', country: 'United Kingdom', flag: '🇬🇧', clients: '45+ Clients', color: '#06b6d4', percent: 65, status: 'Active' },
-                  { id: 'ME-SOUTH-1', country: 'UAE & Gulf', flag: '🇦🇪', clients: '60+ Clients', color: '#ec4899', percent: 75, status: 'Active' },
-                  { id: 'CA-CENTRAL-1', country: 'Canada', flag: '🇨🇦', clients: '30+ Clients', color: '#f59e0b', percent: 45, status: 'Active' },
-                  { id: 'EU-CENTRAL-1', country: 'Germany', flag: '🇩🇪', clients: '20+ Clients', color: '#10b981', percent: 35, status: 'Active' },
-                  { id: 'AP-SOUTHEAST-2', country: 'Australia', flag: '🇦🇺', clients: '25+ Clients', color: '#3b82f6', percent: 40, status: 'Active' },
+                  { id: 'US-EAST-1', country: 'United States', flag: '🇺🇸', clients: '17+ Projects', color: '#8b5cf6', percent: 85, status: 'Active' },
+                  { id: 'EU-WEST-2', country: 'United Kingdom', flag: '🇬🇧', clients: '10+ Projects', color: '#06b6d4', percent: 65, status: 'Active' },
+                  { id: 'ME-SOUTH-1', country: 'UAE & Gulf', flag: '🇦🇪', clients: '7+ Projects', color: '#ec4899', percent: 75, status: 'Active' },
+                  { id: 'CA-CENTRAL-1', country: 'Canada', flag: '🇨🇦', clients: '5+ Projects', color: '#f59e0b', percent: 45, status: 'Active' },
+                  { id: 'EU-CENTRAL-1', country: 'Germany', flag: '🇩🇪', clients: '4+ Projects', color: '#10b981', percent: 35, status: 'Active' },
+                  { id: 'AP-SOUTHEAST-2', country: 'Australia', flag: '🇦🇺', clients: '2+ Projects', color: '#3b82f6', percent: 40, status: 'Active' },
                 ].map((loc, i) => (
                   <div key={i} className="ring-3d-item" style={{ transform: `rotateY(${i * 60}deg) translateZ(360px)` }}>
                     <div className="node-card" style={{ width: '320px', margin: '0 auto', pointerEvents: 'auto' }}>
@@ -841,7 +841,7 @@ export default function Home() {
           </h2>
 
           <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 52px' }}>
-            Join <strong style={{ color: '#a78bfa' }}>250+ global businesses</strong> who trust SoftCodec to engineer world-class digital products that scale.
+            Join <strong style={{ color: '#a78bfa' }}>45+ global businesses</strong> who trust SoftCodec to engineer world-class digital products that scale.
           </p>
 
           {/* CTA Buttons */}
@@ -883,7 +883,7 @@ export default function Home() {
               { icon: '⚡', label: '48hr Kickoff' },
               { icon: '♾️', label: 'Unlimited Revisions' },
               { icon: '✅', label: 'Money-back Guarantee' },
-              { icon: '🌍', label: '30+ Countries' },
+              { icon: '🌍', label: '11+ Countries' },
             ].map((b, i) => (
               <div key={i} style={{
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
