@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Github, ChevronRight, Send } from 'lucide-react';
-import Navbar from '../components/Navbar';
+import { Mail, Phone, MapPin, ChevronRight, Send } from 'lucide-react';
 import ScrollProgress from '../components/ScrollProgress';
 import CursorGlow from '../components/CursorGlow';
 
@@ -30,13 +29,6 @@ const contactDetails = [
     color: '#10b981',
     desc: 'Available Mon-Fri, 9am - 6pm PKT for immediate inquiries.'
   }
-];
-
-const socialLinks = [
-  { icon: Linkedin, name: 'LinkedIn', href: '#' },
-  { icon: Twitter, name: 'Twitter', href: '#' },
-  { icon: Instagram, name: 'Instagram', href: '#' },
-  { icon: Github, name: 'GitHub', href: '#' }
 ];
 
 export default function ContactPage() {
@@ -70,7 +62,6 @@ export default function ContactPage() {
     <div style={{ background: '#ffffff', color: '#0f172a' }}>
       <ScrollProgress />
       <CursorGlow />
-      <Navbar />
 
       {/* ─── 1. ARCHITECTURAL HERO ─── */}
       <section className="section" style={{ 
@@ -305,32 +296,26 @@ export default function ContactPage() {
                 Fill out the technical brief below, and one of our senior architects will reach out to schedule a deep-dive feasibility session.
               </p>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                <h4 style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '1px', textTransform: 'uppercase', color: '#64748b' }}>Technical Partnership Channels</h4>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {socialLinks.map((s, i) => (
-                    <Link 
-                      key={i} 
-                      href={s.href}
-                      style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: '10px', 
-                        padding: '12px 20px', 
-                        borderRadius: '100px', 
-                        background: '#fff', 
-                        border: '1px solid rgba(0,0,0,0.06)', 
-                        textDecoration: 'none',
-                        transition: 'all 0.3s ease'
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#7c3aed'; e.currentTarget.style.background = 'rgba(124,58,237,0.02)'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.background = '#fff'; }}
-                    >
-                      <s.icon size={16} color="#475569" />
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#475569' }}>{s.name}</span>
-                    </Link>
-                  ))}
+              {/* Fast Response Guarantee */}
+              <div style={{
+                padding: '24px',
+                borderRadius: '20px',
+                background: '#ffffff',
+                border: '1px solid rgba(0,0,0,0.06)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }} />
+                  <span style={{ fontSize: '12px', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    Guaranteed Fast Response
+                  </span>
                 </div>
+                <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.6, margin: 0 }}>
+                  Every technical brief is reviewed directly by our senior engineering leads. Expect a comprehensive architectural response within 24 hours.
+                </p>
               </div>
             </div>
 
