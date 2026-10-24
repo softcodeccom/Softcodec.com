@@ -97,7 +97,7 @@ export const contactConfirmationEmail = (name: string, service: string) => ({
           <a href="${SITE}/portfolio" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#06b6d4);color:#fff;text-decoration:none;padding:16px 44px;border-radius:100px;font-size:15px;font-weight:700;box-shadow:0 6px 20px rgba(124,58,237,0.3);">View Our Portfolio →</a>
         </div>
         <p style="color:#94a3b8; font-size:13px; text-align:center; line-height:1.7;">
-          Questions? <a href="mailto:softcodec.com@gmail.com" style="color:#7c3aed;text-decoration:none;font-weight:600;">softcodec.co</a>
+          Questions? <a href="mailto:info@softcodec.co" style="color:#7c3aed;text-decoration:none;font-weight:600;">info@softcodec.co</a>
         </p>
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">
@@ -502,7 +502,7 @@ export const internshipStartedEmail = (name: string, field: string, startDate: s
           We are excited to work with you. Work hard, build awesome projects, and turn your internship into a massive career step!
         </p>
         <p style="color:#94a3b8; font-size:13px; text-align:center;">
-          Have questions? Contact your supervisor or email us at <a href="mailto:softcodec.com@gmail.com" style="color:#7c3aed;text-decoration:none;font-weight:600;">softcodec.co</a>
+          Have questions? Contact your supervisor or email us at <a href="mailto:careers@softcodec.co" style="color:#7c3aed;text-decoration:none;font-weight:600;">careers@softcodec.co</a>
         </p>
       </div>
       <div style="padding:28px 40px; background:#1e293b; text-align:center;">

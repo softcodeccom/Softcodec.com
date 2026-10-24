@@ -56,6 +56,7 @@ export async function PATCH(request: Request) {
     try {
       await transporter.sendMail({
         from: `"SoftCodec Careers" <${process.env.GMAIL_USER}>`,
+        replyTo: 'careers@softcodec.co',
         to: applicant.email,
         ...jobStatusUpdateEmail(applicant.full_name, applicant.position, status),
       });

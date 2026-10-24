@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 
 const SYSTEM_KNOWLEDGE = {
-  ceo: "SoftCodec's CEO is Salman Shoukat. He is a visionary leader in the IT and AI industry in Pakistan, driving SoftCodec's technical excellence globally.",
-  hr: "Our HR Manager is Miss Aiza. She handles all recruitment and career-related queries. You can contact her via our official channels.",
+  ceo: "SoftCodec's CEO is Salman Shoukat (salmanshoukat@softcodec.co). He is a visionary leader in the IT and AI industry in Pakistan, driving SoftCodec's technical excellence globally.",
+  hr: "Our HR Manager is Miss Aiza. She handles all recruitment and career-related queries. You can contact her at hr@softcodec.co or careers@softcodec.co.",
   founders: "SoftCodec was co-founded by Muhammad Behram Hassan, Muhammad Ahmad, and Abdullah. They lead the technical and creative vision of the company alongside CEO Salman Shoukat.",
-  contact: "You can reach us at +92-307-6209331 (Phone/WhatsApp) or email us at softcodec.com@gmail.com.",
+  contact: "You can reach us at +92-307-6209331 (Phone/WhatsApp) or email us at info@softcodec.co. For project quotes, contact business@softcodec.co.",
   services: "We offer Web Development (Next.js), Mobile App Development (Flutter), AI Solutions, and Premium UI/UX Design.",
   portfolio: "We have built high-end projects including Fintech portals and AI SaaS platforms. Check our Portfolio page for more.",
   location: "SoftCodec is based in Pakistan and provides world-class digital services globally.",

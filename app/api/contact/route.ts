@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
     const confirmEmail = contactConfirmationEmail(name, service || 'General Inquiry');
     await transporter.sendMail({
       from: `"SoftCodec Agency" <${process.env.GMAIL_USER}>`,
+      replyTo: 'info@softcodec.co',
       to: email,
       subject: confirmEmail.subject,
       html: confirmEmail.html,
@@ -36,7 +37,8 @@ export async function POST(req: NextRequest) {
     const notifEmail = contactNotificationEmail(name, email, service || 'N/A', message, company, budget);
     await transporter.sendMail({
       from: `"SoftCodec Leads" <${process.env.GMAIL_USER}>`,
-      to: process.env.COMPANY_EMAIL,
+      replyTo: email,
+      to: process.env.COMPANY_EMAIL || 'business@softcodec.co',
       subject: notifEmail.subject,
       html: notifEmail.html,
     });

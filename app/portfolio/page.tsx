@@ -86,19 +86,19 @@ export default function PortfolioPage() {
               
               <h1 style={{ fontSize: 'clamp(44px, 6vw, 84px)', fontWeight: 950, lineHeight: 1, letterSpacing: '-4px', marginBottom: '32px' }}>
                 Crafted for <br />
-                <span className="gradient-text">Massive Scale.</span>
+                <span className="gradient-text">Real Growth.</span>
               </h1>
               
               <p style={{ fontSize: '20px', color: '#475569', lineHeight: 1.6, marginBottom: '48px', maxWidth: '560px' }}>
-                Explore a curated selection of our high-performance digital products. Where architectural engineering meets elite design to create market leaders.
+                Explore some of our best digital products. Strong engineering and clean design, built to help your business grow.
               </p>
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 <Link href="/contact" className="btn-primary" style={{ padding: '20px 48px', fontSize: '16px', background: BRAND_GRADIENT, color: '#fff', borderRadius: '100px', fontWeight: 800, textDecoration: 'none', boxShadow: `0 20px 40px ${BRAND_COLOR}30`, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  Initiate Build <ChevronRight size={18} />
+                  Start a Project <ChevronRight size={18} />
                 </Link>
                 <button onClick={() => document.getElementById('portfolio-grid')?.scrollIntoView({ behavior: 'smooth' })} style={{ padding: '20px 40px', fontSize: '16.5px', color: '#0f172a', border: '1px solid #e2e8f0', background: 'transparent', borderRadius: '100px', fontWeight: 700, cursor: 'pointer' }}>
-                  System Gallery
+                  View Our Work
                 </button>
               </div>
             </motion.div>
@@ -165,10 +165,10 @@ export default function PortfolioPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '500+', label: 'Digital Assets', sub: 'High-Performance Ecosystems', icon: <Zap size={20} /> },
-              { num: '98%', label: 'Client Retention', sub: 'Engineered for Loyalty', icon: <Users size={20} /> },
-              { num: '12+', label: 'Global Industries', sub: 'Cross-Sector Dominance', icon: <Globe size={20} /> },
-              { num: '24/7', label: 'Systems Active', sub: 'Autonomous Operations', icon: <Target size={20} /> },
+              { num: '78+', label: 'Digital Assets', sub: 'Fast & Reliable Products', icon: <Zap size={20} /> },
+              { num: '98%', label: 'Client Retention', sub: 'Clients Who Stay With Us', icon: <Users size={20} /> },
+              { num: '12+', label: 'Industries', sub: 'Work Across Many Fields', icon: <Globe size={20} /> },
+              { num: '24/7', label: 'Support', sub: 'Always Here To Help', icon: <Target size={20} /> },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center', position: 'relative' }}>
                 <div style={{ color: BRAND_COLOR, marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>{s.icon}</div>
@@ -198,7 +198,7 @@ export default function PortfolioPage() {
           
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <h2 style={{ color: '#fff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 950, letterSpacing: '-2.5px', lineHeight: 1, marginBottom: '40px' }}>
-              The <span className="gradient-text">Arsenal.</span>
+              Our <span className="gradient-text">Projects.</span>
             </h2>
 
             {/* Light-to-Dark Filtration System */}
@@ -307,7 +307,7 @@ export default function PortfolioPage() {
                         color: p.color, fontWeight: 800, fontSize: '14px',
                         textTransform: 'uppercase', letterSpacing: '1px'
                       }}>
-                        Analyze Case Study <ArrowRight size={18} />
+                        View Case Study <ArrowRight size={18} />
                       </div>
                     </div>
                   </motion.div>
@@ -344,18 +344,18 @@ export default function PortfolioPage() {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
               <h2 style={{ color: '#fff', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 950, letterSpacing: '-3px', lineHeight: 1 }}>
-                Ready to craft your <br />
-                <span className="gradient-text">Digital Legacy?</span>
+                Ready to build your <br />
+                <span className="gradient-text">Next Big Idea?</span>
               </h2>
               <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.5)', margin: '32px auto 48px', maxWidth: '650px', lineHeight: 1.6 }}>
-                Our engineering team is ready to analyze your requirements and blueprint your next massive success. Let's build something absolute.
+                Our team is ready to understand your needs and plan your next project. Let's build something great together.
               </p>
               <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link href="/contact" className="btn-primary" style={{ padding: '20px 48px', background: BRAND_GRADIENT, boxShadow: '0 20px 40px rgba(124,58,237,0.3)' }}>
-                  <span>Initiate Build →</span>
+                  <span>Start a Project →</span>
                 </Link>
                 <Link href="/about" className="btn-outline" style={{ padding: '20px 48px', color: '#fff', borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
-                  <span>Our Philosophy</span>
+                  <span>About Us</span>
                 </Link>
               </div>
             </div>

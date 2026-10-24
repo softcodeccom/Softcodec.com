@@ -350,6 +350,13 @@ export default function CareersPage() {
                     ))}
                   </div>
                 </div>
+
+                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
+                  <p style={{ fontSize: '13px', color: '#64748b', fontWeight: 600, marginBottom: '6px' }}>Have questions about careers or internships?</p>
+                  <a href="mailto:careers@softcodec.co" style={{ color: '#7c3aed', fontSize: '14px', fontWeight: 800, textDecoration: 'none' }}>
+                    careers@softcodec.co
+                  </a>
+                </div>
               </div>
             </div>
           </div>

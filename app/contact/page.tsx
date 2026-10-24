@@ -11,16 +11,23 @@ import CursorGlow from '../components/CursorGlow';
 const contactDetails = [
   { 
     icon: Mail, 
-    title: 'Email Us', 
-    value: 'softcodec.com@gmail.com', 
+    title: 'General Inquiries', 
+    value: 'info@softcodec.co', 
     color: '#7c3aed',
-    desc: 'Our technical team typically responds within 4 business hours.'
+    desc: 'For general questions, partnerships, and customer inquiries.'
+  },
+  { 
+    icon: Mail, 
+    title: 'Business & Projects', 
+    value: 'business@softcodec.co', 
+    color: '#06b6d4',
+    desc: 'For enterprise custom development, client proposals, and quotes.'
   },
   { 
     icon: Phone, 
-    title: 'Call Us', 
+    title: 'Call / WhatsApp', 
     value: '+92-307-6209331', 
-    color: '#06b6d4',
+    color: '#10b981',
     desc: 'Available Mon-Fri, 9am - 6pm PKT for immediate inquiries.'
   }
 ];
@@ -227,8 +234,8 @@ export default function ContactPage() {
 
       {/* ─── 2. CONTACT DETAILS GRID ─── */}
       <section className="section" style={{ padding: '0 0 140px' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <div className="grid-2" style={{ gap: '32px' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
+          <div className="grid-3" style={{ gap: '32px' }}>
             {contactDetails.map((item, i) => (
               <motion.div
                 key={i}
@@ -271,7 +278,12 @@ export default function ContactPage() {
                   <item.icon size={30} color={item.color} />
                 </div>
                 <h3 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '12px', color: '#fff' }}>{item.title}</h3>
-                <div style={{ fontSize: '16px', fontWeight: 700, color: '#7c3aed', marginBottom: '16px' }}>{item.value}</div>
+                <a 
+                  href={item.value.includes('@') ? `mailto:${item.value}` : `tel:${item.value.replace(/[^+\d]/g, '')}`}
+                  style={{ fontSize: '16px', fontWeight: 700, color: item.color, marginBottom: '16px', display: 'inline-block', textDecoration: 'none' }}
+                >
+                  {item.value}
+                </a>
                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>{item.desc}</p>
               </motion.div>
             ))}

@@ -70,6 +70,7 @@ export async function POST(request: Request) {
     try {
       await transporter.sendMail({
         from: `"SoftCodec Certificates" <${process.env.GMAIL_USER}>`,
+        replyTo: 'careers@softcodec.co',
         to: applicant.email,
         ...internshipCertificateEmail(applicant.full_name, internField, directDownloadUrl),
       });

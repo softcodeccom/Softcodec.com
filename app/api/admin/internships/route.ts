@@ -44,6 +44,7 @@ export async function GET() {
             try {
               await transporter.sendMail({
                 from: `"SoftCodec Internships" <${process.env.GMAIL_USER}>`,
+                replyTo: 'careers@softcodec.co',
                 to: app.email,
                 ...internshipCompletedEmail(app.full_name, app.field || app.position),
               });
@@ -143,6 +144,7 @@ export async function PATCH(request: Request) {
       try {
         await transporter.sendMail({
           from: `"SoftCodec Internships" <${process.env.GMAIL_USER}>`,
+          replyTo: 'careers@softcodec.co',
           to: applicant.email,
           ...internshipStartedEmail(applicant.full_name, selectedField, sDateStr, eDateStr),
         });
@@ -166,6 +168,7 @@ export async function PATCH(request: Request) {
       try {
         await transporter.sendMail({
           from: `"SoftCodec Internships" <${process.env.GMAIL_USER}>`,
+          replyTo: 'careers@softcodec.co',
           to: applicant.email,
           ...internshipCompletedEmail(applicant.full_name, applicant.field || applicant.position),
         });

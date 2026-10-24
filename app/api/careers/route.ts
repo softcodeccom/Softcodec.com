@@ -67,16 +67,18 @@ export async function POST(request: Request) {
 
     // 3. Send Emails
     try {
-      // To Company
+      // To Company (HR / Careers team)
       await transporter.sendMail({
         from: `"SoftCodec Careers" <${process.env.GMAIL_USER}>`,
-        to: process.env.COMPANY_EMAIL,
+        replyTo: email,
+        to: process.env.HR_EMAIL || process.env.COMPANY_EMAIL || 'hr@softcodec.co',
         ...jobApplicationNotificationEmail(fullName, email, position, experience, publicUrl, message),
       });
 
       // To Applicant
       await transporter.sendMail({
         from: `"SoftCodec Careers" <${process.env.GMAIL_USER}>`,
+        replyTo: 'careers@softcodec.co',
         to: email,
         ...applicantConfirmationEmail(fullName, position),
       });

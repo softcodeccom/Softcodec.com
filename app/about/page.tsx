@@ -294,9 +294,9 @@ export default function AboutPage() {
                     <span>Connect with Leadership</span>
                     <ChevronRight size={16} />
                   </Link>
-                  <a href="mailto:softcodec.com@gmail.com" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                  <a href="mailto:salmanshoukat@softcodec.co" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <Mail size={16} color="#06b6d4" />
-                    <span>softcodec.com@gmail.com</span>
+                    <span>salmanshoukat@softcodec.co</span>
                   </a>
                 </div>
               </div>

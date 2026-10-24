@@ -65,11 +65,11 @@ export default function Footer() {
                   </div>
                   +92-307-6209331
                </a>
-               <a href="mailto:softcodec.com@gmail.com" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '15px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.3s' }} className="footer-link">
+               <a href="mailto:info@softcodec.co" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontSize: '15px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.3s' }} className="footer-link">
                   <div style={{ width: '32px', height: '32px', borderRadius: '10px', background: 'rgba(6, 182, 212, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                      <Mail size={14} color="var(--accent-cyan)" />
                   </div>
-                  softcodec.com@gmail.com
+                  info@softcodec.co
                </a>
             </div>
 
