@@ -26,23 +26,26 @@ export async function POST(req: NextRequest) {
 
     if (dbError) throw dbError;
 
-    // 2. Send welcome email to subscriber
-    const confirmEmail = newsletterConfirmationEmail(email);
-    await transporter.sendMail({
-      from: `"SoftCodec Newsletter" <${process.env.GMAIL_USER}>`,
-      to: email,
-      subject: confirmEmail.subject,
-      html: confirmEmail.html,
-    });
+    // 2. Send welcome & notification emails gracefully
+    try {
+      const confirmEmail = newsletterConfirmationEmail(email);
+      await transporter.sendMail({
+        from: `"SoftCodec Newsletter" <${process.env.GMAIL_USER}>`,
+        to: email,
+        subject: confirmEmail.subject,
+        html: confirmEmail.html,
+      });
 
-    // 3. Send notification to company
-    const notifEmail = newsletterNotificationEmail(email);
-    await transporter.sendMail({
-      from: `"SoftCodec Leads" <${process.env.GMAIL_USER}>`,
-      to: process.env.COMPANY_EMAIL,
-      subject: notifEmail.subject,
-      html: notifEmail.html,
-    });
+      const notifEmail = newsletterNotificationEmail(email);
+      await transporter.sendMail({
+        from: `"SoftCodec Leads" <${process.env.GMAIL_USER}>`,
+        to: process.env.COMPANY_EMAIL,
+        subject: notifEmail.subject,
+        html: notifEmail.html,
+      });
+    } catch (mailError) {
+      console.error('Newsletter Email Warning (Subscriber safely saved to DB):', mailError);
+    }
 
     return NextResponse.json({ success: true });
 

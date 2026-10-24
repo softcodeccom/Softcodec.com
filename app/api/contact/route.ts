@@ -23,25 +23,28 @@ export async function POST(req: NextRequest) {
 
     if (dbError) throw dbError;
 
-    // 2. Send confirmation email to client
-    const confirmEmail = contactConfirmationEmail(name, service || 'General Inquiry');
-    await transporter.sendMail({
-      from: `"SoftCodec Agency" <${process.env.GMAIL_USER}>`,
-      replyTo: 'info@softcodec.co',
-      to: email,
-      subject: confirmEmail.subject,
-      html: confirmEmail.html,
-    });
+    // 2. Send confirmation & notification emails gracefully
+    try {
+      const confirmEmail = contactConfirmationEmail(name, service || 'General Inquiry');
+      await transporter.sendMail({
+        from: `"SoftCodec Agency" <${process.env.GMAIL_USER}>`,
+        replyTo: 'info@softcodec.co',
+        to: email,
+        subject: confirmEmail.subject,
+        html: confirmEmail.html,
+      });
 
-    // 3. Send notification email to company
-    const notifEmail = contactNotificationEmail(name, email, service || 'N/A', message, company, budget);
-    await transporter.sendMail({
-      from: `"SoftCodec Leads" <${process.env.GMAIL_USER}>`,
-      replyTo: email,
-      to: process.env.COMPANY_EMAIL || 'business@softcodec.co',
-      subject: notifEmail.subject,
-      html: notifEmail.html,
-    });
+      const notifEmail = contactNotificationEmail(name, email, service || 'N/A', message, company, budget);
+      await transporter.sendMail({
+        from: `"SoftCodec Leads" <${process.env.GMAIL_USER}>`,
+        replyTo: email,
+        to: process.env.COMPANY_EMAIL || 'business@softcodec.co',
+        subject: notifEmail.subject,
+        html: notifEmail.html,
+      });
+    } catch (mailError) {
+      console.error('Contact Email Warning (Lead safely saved to DB):', mailError);
+    }
 
     return NextResponse.json({ success: true });
 
