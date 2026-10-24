@@ -613,12 +613,12 @@ export default function Home() {
             <div className="ring-3d-scene" style={{ height: '100%', transform: 'scale(1.2)' }}>
               <div className="ring-3d-object">
                 {[
-                  { id: 'US-EAST-1', country: 'United States', flag: '🇺🇸', clients: '20+ Projects', color: '#8b5cf6', percent: 85, status: 'Active' },
-                  { id: 'EU-WEST-2', country: 'United Kingdom', flag: '🇬🇧', clients: '14+ Projects', color: '#06b6d4', percent: 65, status: 'Active' },
-                  { id: 'ME-SOUTH-1', country: 'UAE & Gulf', flag: '🇦🇪', clients: '10+ Projects', color: '#ec4899', percent: 75, status: 'Active' },
-                  { id: 'CA-CENTRAL-1', country: 'Canada', flag: '🇨🇦', clients: '10+ Projects', color: '#f59e0b', percent: 45, status: 'Active' },
-                  { id: 'EU-CENTRAL-1', country: 'Germany', flag: '🇩🇪', clients: '14+ Projects', color: '#10b981', percent: 35, status: 'Active' },
-                  { id: 'AP-SOUTHEAST-2', country: 'Australia', flag: '🇦🇺', clients: '20+ Projects', color: '#3b82f6', percent: 40, status: 'Active' },
+                  { id: 'US-EAST-1', country: 'United States', flag: '🇺🇸', clients: '23+ Projects', color: '#8b5cf6', percent: 90, status: 'Active' },
+                  { id: 'EU-WEST-2', country: 'United Kingdom', flag: '🇬🇧', clients: '20+ Projects', color: '#06b6d4', percent: 80, status: 'Active' },
+                  { id: 'ME-SOUTH-1', country: 'UAE & Gulf', flag: '🇦🇪', clients: '17+ Projects', color: '#ec4899', percent: 70, status: 'Active' },
+                  { id: 'CA-CENTRAL-1', country: 'Canada', flag: '🇨🇦', clients: '15+ Projects', color: '#f59e0b', percent: 60, status: 'Active' },
+                  { id: 'EU-CENTRAL-1', country: 'Germany', flag: '🇩🇪', clients: '12+ Projects', color: '#10b981', percent: 50, status: 'Active' },
+                  { id: 'AP-SOUTHEAST-2', country: 'Australia', flag: '🇦🇺', clients: '10+ Projects', color: '#3b82f6', percent: 40, status: 'Active' },
                 ].map((loc, i) => (
                   <div key={i} className="ring-3d-item" style={{ transform: `rotateY(${i * 60}deg) translateZ(360px)` }}>
                     <div className="node-card" style={{ width: '320px', margin: '0 auto', pointerEvents: 'auto' }}>
