@@ -137,13 +137,14 @@ export default function AboutPage() {
       </section>
 
       {/* ─── 2.5 EXECUTIVE LEADERSHIP (FOUNDER & CEO SPOTLIGHT) ─── */}
-      <section className="section" style={{ background: '#020205', position: 'relative', overflow: 'hidden', padding: '120px 0' }}>
+      {/* ─── 2.5 EXECUTIVE LEADERSHIP (HEADING) ─── */}
+      <section style={{ background: '#020205', position: 'relative', overflow: 'hidden', paddingTop: '100px', paddingBottom: '30px' }}>
         {/* Ambient Lighting Orbs */}
-        <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
-        <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
+        <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
+        <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%)', filter: 'blur(100px)', zIndex: 0 }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="text-center reveal-up" style={{ marginBottom: '70px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="text-center reveal-up" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#a78bfa', fontSize: '12px', fontWeight: 900, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px', padding: '6px 18px', background: 'rgba(124, 58, 237, 0.12)', borderRadius: '100px', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
               <Sparkles size={14} color="#a78bfa" /> Executive Leadership
             </div>
@@ -154,170 +155,164 @@ export default function AboutPage() {
               The engineering visionary guiding SoftCodec&apos;s architectural standards and international expansion.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="reveal-up" style={{
-            background: '#ffffff',
-            border: '1px solid #e2e8f0',
-            borderRadius: '36px',
-            overflow: 'hidden',
-            boxShadow: '0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08)',
-            padding: 'clamp(32px, 5vw, 60px)'
-          }}>
-            <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(40px, 6vw, 70px)' }}>
+      {/* ─── CEO SPOTLIGHT (FULL-WIDTH PURE WHITE SECTION) ─── */}
+      <section className="section" style={{ background: '#ffffff', position: 'relative', padding: '80px 0 110px' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(40px, 6vw, 70px)' }}>
+            
+            {/* CEO Portrait Column */}
+            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '430px',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 20px 45px rgba(0,0,0,0.12)'
+              }}>
+                <img 
+                  src="/CEO.jpeg" 
+                  alt="Salman Shoukat - CEO & Founder of SoftCodec"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* CEO Bio & Details (Light Theme on White) */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               
-              {/* CEO Portrait Column */}
-              <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-                <div style={{
-                  position: 'relative',
-                  width: '100%',
-                  maxWidth: '430px',
-                  borderRadius: '26px',
-                  overflow: 'hidden',
-                  border: '1px solid #e2e8f0',
-                  boxShadow: '0 20px 45px rgba(0,0,0,0.1)',
-                  background: '#ffffff',
-                  zIndex: 1
-                }}>
-                  <img 
-                    src="/CEO.jpeg" 
-                    alt="Salman Shoukat - CEO & Founder of SoftCodec"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
+              {/* Role Pill */}
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 16px',
+                borderRadius: '100px',
+                background: 'rgba(124, 58, 237, 0.08)',
+                border: '1px solid rgba(124, 58, 237, 0.2)',
+                width: 'fit-content'
+              }}>
+                <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#7c3aed', boxShadow: '0 0 8px rgba(124,58,237,0.4)' }} />
+                <span style={{ fontSize: '11px', fontWeight: 800, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                  Founder & CEO
+                </span>
+              </div>
+
+              {/* Name & Title */}
+              <div>
+                <h3 style={{ fontSize: 'clamp(32px, 4vw, 44px)', fontWeight: 950, color: '#0f172a', letterSpacing: '-1.5px', lineHeight: 1.1, margin: 0 }}>
+                  Salman <span className="gradient-text">Shoukat</span>
+                </h3>
+                <p style={{ color: '#64748b', fontSize: '14.5px', fontWeight: 700, marginTop: '6px', letterSpacing: '0.3px' }}>
+                  Chief Executive Officer · SoftCodec
+                </p>
+              </div>
+
+              {/* Description */}
+              <p style={{ color: '#334155', fontSize: '15.5px', lineHeight: 1.8, margin: 0 }}>
+                Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. Overseeing elite engineers and designers, he leads the architecture of modern web ecosystems, bespoke digital platforms, and intelligent AI solutions for enterprise clients worldwide.
+              </p>
+
+              {/* Quote Box */}
+              <div style={{
+                padding: '18px 22px',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                borderLeft: '4px solid #7c3aed',
+                borderRadius: '16px'
+              }}>
+                <p style={{ color: '#475569', fontSize: '14px', lineHeight: 1.7, margin: 0, fontStyle: 'italic', fontWeight: 500 }}>
+                  &ldquo;We don&apos;t just build software to complete contracts — we engineer high-velocity digital solutions that empower companies with absolute reliability and long-term value.&rdquo;
+                </p>
+              </div>
+
+              {/* 3 Stats Strip */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '12px',
+                marginTop: '4px'
+              }}>
+                <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
+                  <div style={{ color: '#0284c7', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>2+ Years</div>
+                  <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Leadership</div>
+                </div>
+                <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
+                  <div style={{ color: '#7c3aed', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>45+</div>
+                  <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Projects Done</div>
+                </div>
+                <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
+                  <div style={{ color: '#059669', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>11+</div>
+                  <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Countries</div>
                 </div>
               </div>
 
-              {/* CEO Bio & Details (Light Theme on White) */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                
-                {/* Role Pill */}
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '6px 16px',
-                  borderRadius: '100px',
-                  background: 'rgba(124, 58, 237, 0.08)',
-                  border: '1px solid rgba(124, 58, 237, 0.2)',
-                  width: 'fit-content'
-                }}>
-                  <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#7c3aed', boxShadow: '0 0 8px rgba(124,58,237,0.4)' }} />
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-                    Founder & CEO
-                  </span>
-                </div>
+              {/* Action Buttons Row */}
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
+                <Link href="/contact" className="btn-primary" style={{ padding: '14px 30px', fontSize: '13.5px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 6px 20px rgba(124,58,237,0.3)' }}>
+                  <span>Connect with Leadership</span>
+                  <ChevronRight size={15} />
+                </Link>
 
-                {/* Name & Title */}
-                <div>
-                  <h3 style={{ fontSize: 'clamp(32px, 4vw, 44px)', fontWeight: 950, color: '#0f172a', letterSpacing: '-1.5px', lineHeight: 1.1, margin: 0 }}>
-                    Salman <span className="gradient-text">Shoukat</span>
-                  </h3>
-                  <p style={{ color: '#64748b', fontSize: '14.5px', fontWeight: 700, marginTop: '6px', letterSpacing: '0.3px' }}>
-                    Chief Executive Officer · SoftCodec
-                  </p>
-                </div>
+                <a 
+                  href="mailto:salmanshoukat@softcodec.co" 
+                  style={{
+                    padding: '13px 22px',
+                    borderRadius: '100px',
+                    background: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    color: '#0f172a',
+                    fontSize: '13.5px',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'all 0.3s'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#7c3aed'; e.currentTarget.style.background = '#f5f3ff'; e.currentTarget.style.color = '#7c3aed'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.color = '#0f172a'; }}
+                >
+                  <Mail size={16} color="#7c3aed" />
+                  <span>salmanshoukat@softcodec.co</span>
+                </a>
 
-                {/* Description */}
-                <p style={{ color: '#334155', fontSize: '15.5px', lineHeight: 1.8, margin: 0 }}>
-                  Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. Overseeing elite engineers and designers, he leads the architecture of modern web ecosystems, bespoke digital platforms, and intelligent AI solutions for enterprise clients worldwide.
-                </p>
-
-                {/* Quote Box */}
-                <div style={{
-                  padding: '18px 22px',
-                  background: '#f8fafc',
-                  border: '1px solid #e2e8f0',
-                  borderLeft: '4px solid #7c3aed',
-                  borderRadius: '16px'
-                }}>
-                  <p style={{ color: '#475569', fontSize: '14px', lineHeight: 1.7, margin: 0, fontStyle: 'italic', fontWeight: 500 }}>
-                    &ldquo;We don&apos;t just build software to complete contracts — we engineer high-velocity digital solutions that empower companies with absolute reliability and long-term value.&rdquo;
-                  </p>
-                </div>
-
-                {/* 3 Stats Strip */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: '12px',
-                  marginTop: '4px'
-                }}>
-                  <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
-                    <div style={{ color: '#0284c7', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>2+ Years</div>
-                    <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Leadership</div>
-                  </div>
-                  <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
-                    <div style={{ color: '#7c3aed', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>45+</div>
-                    <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Projects Done</div>
-                  </div>
-                  <div style={{ padding: '16px 14px', borderRadius: '18px', background: '#f8fafc', border: '1px solid #e2e8f0', textAlign: 'center' }}>
-                    <div style={{ color: '#059669', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>11+</div>
-                    <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '4px' }}>Countries</div>
-                  </div>
-                </div>
-
-                {/* Action Buttons Row */}
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
-                  <Link href="/contact" className="btn-primary" style={{ padding: '14px 30px', fontSize: '13.5px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 6px 20px rgba(124,58,237,0.3)' }}>
-                    <span>Connect with Leadership</span>
-                    <ChevronRight size={15} />
-                  </Link>
-
-                  <a 
-                    href="mailto:salmanshoukat@softcodec.co" 
-                    style={{
-                      padding: '13px 22px',
-                      borderRadius: '100px',
-                      background: '#f8fafc',
-                      border: '1px solid #e2e8f0',
-                      color: '#0f172a',
-                      fontSize: '13.5px',
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      transition: 'all 0.3s'
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#7c3aed'; e.currentTarget.style.background = '#f5f3ff'; e.currentTarget.style.color = '#7c3aed'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.color = '#0f172a'; }}
-                  >
-                    <Mail size={16} color="#7c3aed" />
-                    <span>salmanshoukat@softcodec.co</span>
-                  </a>
-
-                  <a 
-                    href="https://pk.linkedin.com/company/softcodec" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    title="Connect on LinkedIn"
-                    style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '50%',
-                      background: '#f8fafc',
-                      border: '1px solid #e2e8f0',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#0077b5',
-                      textDecoration: 'none',
-                      transition: 'all 0.3s'
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = '#0077b5'; e.currentTarget.style.borderColor = '#0077b5'; e.currentTarget.style.color = '#fff'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.color = '#0077b5'; }}
-                  >
-                    <Linkedin size={17} />
-                  </a>
-                </div>
-
+                <a 
+                  href="https://pk.linkedin.com/company/softcodec" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Connect on LinkedIn"
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    background: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#0077b5',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#0077b5'; e.currentTarget.style.borderColor = '#0077b5'; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.color = '#0077b5'; }}
+                >
+                  <Linkedin size={17} />
+                </a>
               </div>
 
             </div>
+
           </div>
         </div>
       </section>
