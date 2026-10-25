@@ -198,10 +198,10 @@ export default function MobileAppsPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '80+', label: 'Apps Published', sub: 'iOS & Android' },
-              { num: '4.8★', label: 'Store Rating', sub: 'Average Score' },
-              { num: '2.5M', label: 'User Installs', sub: 'Aggregate Reach' },
-              { num: '0.1s', label: 'P99 Latency', sub: 'Core Interaction' },
+              { num: '12+', label: 'Apps Published', sub: 'iOS & Android' },
+              { num: '4.9★', label: 'Store Rating', sub: 'Average Score' },
+              { num: '65K+', label: 'User Installs', sub: 'Aggregate Reach' },
+              { num: '< 0.2s', label: 'P99 Latency', sub: 'Core Interaction' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>

@@ -192,10 +192,10 @@ export default function DigitalMarketingPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '4.8x', label: 'Average ROAS', sub: 'Calculated baseline' },
-              { num: '$80M+', label: 'Ad Spend Handled', sub: 'Across Meta & Google' },
-              { num: '-45%', label: 'CPA Reduction', sub: 'Using precise targeting' },
-              { num: '500+', label: 'Scaling Campaigns', sub: 'Currently active' },
+              { num: '3.8x', label: 'Average ROAS', sub: 'Calculated baseline' },
+              { num: '$350K+', label: 'Ad Spend Handled', sub: 'Across Meta & Google' },
+              { num: '-32%', label: 'CPA Reduction', sub: 'Using precise targeting' },
+              { num: '24+', label: 'Scaling Campaigns', sub: 'Currently active' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>

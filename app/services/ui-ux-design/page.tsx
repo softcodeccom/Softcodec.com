@@ -192,10 +192,10 @@ export default function UIUXDesignPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '300+', label: 'Interfaces Architected', sub: 'Global Deployments' },
+              { num: '28+', label: 'Interfaces Architected', sub: 'Global Deployments' },
               { num: '4.9/5', label: 'Client Satisfaction', sub: 'Verified External Rating' },
-              { num: '85%', label: 'Retention Lift', sub: 'Average post-redesign' },
-              { num: '50%', label: 'Bounce Reduction', sub: 'Through cognitive UX' },
+              { num: '45%', label: 'Retention Lift', sub: 'Average post-redesign' },
+              { num: '35%', label: 'Bounce Reduction', sub: 'Through cognitive UX' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>

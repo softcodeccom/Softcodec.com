@@ -192,10 +192,10 @@ export default function SEOPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '500%', label: 'Delta Increase', sub: 'Average organic growth' },
-              { num: 'Page 1', label: 'Monopoly Status', sub: 'High-commercial intent' },
+              { num: '180%', label: 'Traffic Growth', sub: 'Average organic lift' },
+              { num: 'Page 1', label: 'Rankings Target', sub: 'High-commercial intent' },
               { num: '0.8s', label: 'Render Velocity', sub: 'Technical SEO baseline' },
-              { num: '100+', label: 'High-DR Assets', sub: 'Authority backlinks built' },
+              { num: '45+', label: 'High-DR Assets', sub: 'Authority backlinks built' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>

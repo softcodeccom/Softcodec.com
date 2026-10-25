@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
 const SYSTEM_KNOWLEDGE = {
-  ceo: "SoftCodec's CEO is Salman Shoukat (salmanshoukat@softcodec.co). He is a visionary leader in the IT and AI industry in Pakistan, driving SoftCodec's technical excellence globally.",
+  ceo: "SoftCodec's CEO is Mian Salman (salmanshoukat@softcodec.co). He is a visionary leader in the IT and AI industry in Pakistan, driving SoftCodec's technical excellence globally.",
   hr: "Our HR Manager is Miss Aiza. She handles all recruitment and career-related queries. You can contact her at hr@softcodec.co or careers@softcodec.co.",
-  founders: "SoftCodec was co-founded by Muhammad Behram Hassan, Muhammad Ahmad, and Abdullah. They lead the technical and creative vision of the company alongside CEO Salman Shoukat.",
+  founders: "SoftCodec was co-founded by Muhammad Behram Hassan, Muhammad Ahmad, and Abdullah. They lead the technical and creative vision of the company alongside CEO Mian Salman.",
   contact: "You can reach us at +92-307-6209331 (Phone/WhatsApp) or email us at info@softcodec.co. For project quotes, contact business@softcodec.co.",
   services: "We offer Web Development (Next.js), Mobile App Development (Flutter), AI Solutions, and Premium UI/UX Design.",
   portfolio: "We have built high-end projects including Fintech portals and AI SaaS platforms. Check our Portfolio page for more.",
@@ -18,10 +18,10 @@ export async function POST(request: Request) {
 
     // 1. SMALL TALK / GREETINGS
     if (query.includes('hi') || query.includes('hello') || query.includes('hey') || query.includes('assalam')) {
-      return NextResponse.json({ response: "Hello! I am the SoftCodec Assistant. How can I help you today? You can ask about our services, CEO Salman Shoukat, or our team." });
+      return NextResponse.json({ response: "Hello! I am the SoftCodec Assistant. How can I help you today? You can ask about our services, CEO Mian Salman, or our team." });
     }
     if (query.includes('doing') || query.includes('what are you')) {
-      return NextResponse.json({ response: "I am busy assisting visitors and explaining how SoftCodec (led by Salman Shoukat) builds world-class digital products! How can I help you?" });
+      return NextResponse.json({ response: "I am busy assisting visitors and explaining how SoftCodec (led by Mian Salman) builds world-class digital products! How can I help you?" });
     }
     if (query.includes('how are you') || query.includes('kaise ho')) {
       return NextResponse.json({ response: "I am functioning at 100% efficiency! Ready to discuss your next big project. How about you?" });

@@ -192,9 +192,9 @@ export default function CloudDevOpsPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '99.99%', label: 'Uptime Achieved', sub: 'Calculated across nodes' },
-              { num: '40%', label: 'Cost Compression', sub: 'Average cloud bill reduction' },
-              { num: '10x', label: 'Deployment Velocity', sub: 'Via automated pipelines' },
+              { num: '99.9%', label: 'Uptime Achieved', sub: 'Calculated across nodes' },
+              { num: '30%', label: 'Cost Compression', sub: 'Average cloud bill reduction' },
+              { num: '3.5x', label: 'Deployment Velocity', sub: 'Via automated pipelines' },
               { num: '24/7', label: 'Active Defense', sub: 'Zero-trust architecture' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>

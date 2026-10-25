@@ -192,10 +192,10 @@ export default function EcommercePage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '50+', label: 'Stores Engineered', sub: 'Global Deployments' },
-              { num: '$40M+', label: 'Processed Revenue', sub: 'Through our systems' },
+              { num: '14+', label: 'Stores Engineered', sub: 'Global Deployments' },
+              { num: '$2.5M+', label: 'Processed Revenue', sub: 'Through our systems' },
               { num: '< 0.8s', label: 'LCP Load Time', sub: 'Instant Render Engine' },
-              { num: '32%', label: 'Checkout Lift', sub: 'Measured post-launch' },
+              { num: '28%', label: 'Checkout Lift', sub: 'Measured post-launch' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>

@@ -194,7 +194,7 @@ export default function AboutPage() {
                   }}>
                     <img
                       src="/Salman Shoukat.jpeg"
-                      alt="Salman Shoukat - CEO & Founder of SoftCodec"
+                      alt="Mian Salman - CEO & Founder of SoftCodec"
                       style={{
                         width: '100%',
                         height: '100%',
@@ -305,7 +305,7 @@ export default function AboutPage() {
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)'; }}
                 >
                   <Mail size={15} color="#06b6d4" />
-                  <span>salmanshoukat@softcodec.co</span>
+                  <span>miansalman@softcodec.co</span>
                 </a>
               </div>
 
@@ -334,7 +334,7 @@ export default function AboutPage() {
               {/* Name & Title */}
               <div>
                 <h3 style={{ fontSize: 'clamp(34px, 4.2vw, 48px)', fontWeight: 950, color: '#ffffff', letterSpacing: '-1.5px', lineHeight: 1.1, margin: 0 }}>
-                  Salman <span className="gradient-text">Shoukat</span>
+                  Mian <span className="gradient-text">Salman</span>
                 </h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '15px', fontWeight: 600, marginTop: '8px', letterSpacing: '0.3px' }}>
                   Chief Executive Officer · SoftCodec
@@ -344,10 +344,10 @@ export default function AboutPage() {
               {/* Description Paragraphs */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '15.5px', lineHeight: 1.8, margin: 0 }}>
-                  Under Salman Shoukat&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. As Founder &amp; CEO, he bridges deep technical software engineering with strategic product leadership, directing an elite team of developers and designers across enterprise web, mobile, and intelligent AI ecosystems.
+                  Under Mian Salman&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. As Founder &amp; CEO, he bridges deep technical software engineering with strategic product leadership, directing an elite team of developers and designers across enterprise web, mobile, and intelligent AI ecosystems.
                 </p>
                 <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
-                  A hands-on technologist with deep expertise in full-stack architecture and cloud infrastructure, Salman personally guides the engineering standards and system blueprints for Tier-1 enterprise clients. His focus centers on building fault-tolerant distributed platforms, high-throughput backend services, and production-ready AI automations that solve complex business bottlenecks.
+                  A hands-on technologist with deep expertise in full-stack architecture and cloud infrastructure, Mian Salman personally guides the engineering standards and system blueprints for Tier-1 enterprise clients. His focus centers on building fault-tolerant distributed platforms, high-throughput backend services, and production-ready AI automations that solve complex business bottlenecks.
                 </p>
               </div>
 

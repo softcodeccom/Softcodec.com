@@ -158,9 +158,9 @@ export default function AIAutomationPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '70%', label: 'Efficiency Lift', sub: 'Average Operational Speed' },
-              { num: '10M+', label: 'Daily Predictions', sub: 'Sub-second Latency' },
-              { num: '50+', label: 'Systems Deployed', sub: 'Zero-hallucination engines' },
+              { num: '45%', label: 'Efficiency Lift', sub: 'Average Operational Speed' },
+              { num: '150K+', label: 'Tasks Automated', sub: 'Sub-second Latency' },
+              { num: '15+', label: 'Systems Deployed', sub: 'Zero-hallucination engines' },
               { num: '24/7', label: 'Autonomous Uptime', sub: 'Manual-free workflow' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>

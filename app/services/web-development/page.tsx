@@ -193,10 +193,10 @@ export default function WebDevelopmentPage() {
         <div className="container">
           <div className="grid-4" style={{ gap: '1px', background: '#f1f5f9', border: '1px solid #f1f5f9', borderRadius: '32px', overflow: 'hidden' }}>
             {[
-              { num: '200+', label: 'Platforms Engineered', sub: 'High-Scale Deployments' },
-              { num: '0.4s', label: 'Average LCP', sub: 'Lighthouse Score 100/100' },
+              { num: '25+', label: 'Platforms Engineered', sub: 'High-Scale Deployments' },
+              { num: '0.8s', label: 'Average LCP', sub: 'Lighthouse Score 98+' },
               { num: '99.9%', label: 'Infrastructure Uptime', sub: 'Zero-Maintenance Scalability' },
-              { num: '3.4x', label: 'Conversion Utility', sub: 'User-First Architecture' },
+              { num: '2.4x', label: 'Conversion Utility', sub: 'User-First Architecture' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#fff', padding: '48px 32px', textAlign: 'center' }}>
                 <div style={{ fontSize: '42px', fontWeight: 950, color: '#0f172a', letterSpacing: '-2px', marginBottom: '4px', fontFamily: 'Orbitron' }}>{s.num}</div>
