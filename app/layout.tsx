@@ -6,8 +6,8 @@ import ConsoleFilter from './components/ConsoleFilter';
 import IntroScan from './components/IntroScan';
 
 export const metadata: Metadata = {
-  title: 'SoftCodec | Premium IT & AI Agency Pakistan',
-  description: "SoftCodec is Pakistan's premier IT & AI agency — delivering world-class web apps, mobile apps, AI solutions, and digital experiences that transform businesses.",
+  title: 'SoftCodec | Premium IT Company Pakistan',
+  description: "SoftCodec is Pakistan's premier IT company — delivering world-class web apps, mobile apps, AI solutions, and digital experiences that transform businesses.",
   icons: {
     icon: '/image.jpg.jpg',
     apple: '/image.jpg.jpg',

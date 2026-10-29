@@ -344,7 +344,7 @@ export default function AboutPage() {
               {/* Description Paragraphs */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '15.5px', lineHeight: 1.8, margin: 0 }}>
-                  Under Mian Salman&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT and AI engineering agency. As Founder &amp; CEO, he bridges deep technical software engineering with strategic product leadership, directing an elite team of developers and designers across enterprise web, mobile, and intelligent AI ecosystems.
+                  Under Mian Salman&apos;s leadership since 2024, SoftCodec has rapidly grown into a high-performance IT company. As Founder &amp; CEO, he bridges deep technical software engineering with strategic product leadership, directing an elite team of developers and designers across enterprise web, mobile, and intelligent AI ecosystems.
                 </p>
                 <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>
                   A hands-on technologist with deep expertise in full-stack architecture and cloud infrastructure, Mian Salman personally guides the engineering standards and system blueprints for Tier-1 enterprise clients. His focus centers on building fault-tolerant distributed platforms, high-throughput backend services, and production-ready AI automations that solve complex business bottlenecks.

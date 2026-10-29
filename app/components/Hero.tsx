@@ -82,7 +82,7 @@ export default function Hero() {
               marginBottom: '32px'
             }}>
               <div className="system-dot" />
-              PAKISTAN&apos;S TOP IT &amp; AI AGENCY
+              PAKISTAN&apos;S TOP IT COMPANY
             </span>
           </div>
 

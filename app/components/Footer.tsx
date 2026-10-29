@@ -92,7 +92,7 @@ export default function Footer() {
 
           {/* Links 2 */}
           <div>
-            <h4 style={{ color: '#ffffff', fontSize: '16px', fontWeight: 700, marginBottom: '24px' }}>Agency</h4>
+            <h4 style={{ color: '#ffffff', fontSize: '16px', fontWeight: 700, marginBottom: '24px' }}>Company</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {companyLinks.map((l) => (
                 <li key={l.name}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '14px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-purple)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>{l.name}</Link></li>
@@ -144,7 +144,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>© {currentYear} SoftCodec. Pakistan IT & AI Agency.</p>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>© {currentYear} SoftCodec. Pakistan IT Company.</p>
           <div style={{ display: 'flex', gap: '24px' }}>
              <Link href="/privacy" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>Privacy</Link>
              <Link href="/terms" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>Terms</Link>
