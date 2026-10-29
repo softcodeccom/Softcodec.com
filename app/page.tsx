@@ -5,7 +5,7 @@ import CursorGlow from './components/CursorGlow';
 import Hero from './components/Hero';
 import Link from 'next/link';
 import StatCard from './components/StatCard';
-import { Cpu, Zap, Activity, ShieldCheck, Shield, Timer, Globe, BarChart3, Award, RotateCcw, Star, Quote, CheckCircle2, ChevronDown, ChevronUp, Smartphone, Bot, Palette } from 'lucide-react';
+import { Cpu, Zap, Activity, ShieldCheck, Shield, Timer, Globe, BarChart3, Award, RotateCcw, Star, Quote, CheckCircle2, ChevronDown, Smartphone, Bot, Palette, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import BlobImage from './components/BlobImage';
@@ -38,7 +38,7 @@ const faqs = [
 ];
 
 const statsData = [
-  { num: 45, label: 'Projects Completed', icon: 'Rocket', color: '#a78bfa', glow: 'rgba(167, 139, 250, 0.5)', delay: 0 },
+  { num: 30, label: 'Projects Completed', icon: 'Rocket', color: '#a78bfa', glow: 'rgba(167, 139, 250, 0.5)', delay: 0 },
   { num: 11, label: 'Countries Served', icon: 'Globe', color: '#22d3ee', glow: 'rgba(34, 211, 238, 0.5)', delay: 200 },
   { num: 97, label: 'Client Satisfaction', icon: 'Star', color: '#facc15', glow: 'rgba(250, 204, 21, 0.5)', delay: 400, suffix: '%' },
   { num: 10, label: 'Elite Developers', icon: 'Zap', color: '#f472b6', glow: 'rgba(244, 114, 182, 0.5)', delay: 600 },
@@ -80,7 +80,6 @@ const awards = [
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [showAllTestimonials, setShowAllTestimonials] = useState(false);
 
   return (
     <>
@@ -591,6 +590,7 @@ export default function Home() {
 
       {/* ============ GLOBAL PRESENCE DASHBOARD ============ */}
       <section className="section" style={{
+        display: 'none',
         background: 'var(--bg-secondary)', paddingTop: '60px', paddingBottom: '60px',
         position: 'relative', overflow: 'hidden',
       }} id="presence">
@@ -676,7 +676,7 @@ export default function Home() {
             <p className="section-subtext" style={{ margin: '20px auto 0', maxWidth: '600px' }}>What our international clients say about their experience with SoftCodec.</p>
           </div>
           <div className="grid-3" style={{ gap: '32px' }}>
-            {(showAllTestimonials ? testimonials : testimonials.slice(0, 3)).map((t, i) => (
+            {testimonials.slice(0, 3).map((t, i) => (
               <div key={i} className="glass-card dark-glass-card reveal" style={{
                 padding: '48px 40px',
                 transitionDelay: `${i * 0.1}s`,
@@ -738,29 +738,15 @@ export default function Home() {
             ))}
           </div>
 
-          {!showAllTestimonials && testimonials.length > 3 && (
-            <div style={{ textAlign: 'center', marginTop: '60px' }}>
-              <button
-                onClick={() => setShowAllTestimonials(true)}
-                className="secondary-btn"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                View All Testimonials <ChevronDown size={18} />
-              </button>
-            </div>
-          )}
-
-          {showAllTestimonials && (
-            <div style={{ textAlign: 'center', marginTop: '60px' }}>
-              <button
-                onClick={() => setShowAllTestimonials(false)}
-                className="secondary-btn"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                Show Less <ChevronUp size={18} />
-              </button>
-            </div>
-          )}
+          <div style={{ textAlign: 'center', marginTop: '60px' }}>
+            <Link
+              href="/testimonials"
+              className="secondary-btn"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
+            >
+              View All Testimonials <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -841,7 +827,7 @@ export default function Home() {
           </h2>
 
           <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 52px' }}>
-            Join <strong style={{ color: '#a78bfa' }}>45+ global businesses</strong> who trust SoftCodec to engineer world-class digital products that scale.
+            Join <strong style={{ color: '#a78bfa' }}>30+ global businesses</strong> who trust SoftCodec to engineer world-class digital products that scale.
           </p>
 
           {/* CTA Buttons */}

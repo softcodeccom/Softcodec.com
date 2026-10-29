@@ -222,7 +222,7 @@ export default function ServicesPage() {
             Ready to build <span className="gradient-text">exceptional</span> digital experiences?
           </h2>
           <p className="section-subtext" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
-            Join 45+ happy clients who trusted SoftCodec to transform their digital presence and exponentially scale their business.
+            Join 30+ happy clients who trusted SoftCodec to transform their digital presence and exponentially scale their business.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
             <Link href="/contact" className="btn-primary" style={{ padding: '16px 36px', fontSize: '15px' }}>

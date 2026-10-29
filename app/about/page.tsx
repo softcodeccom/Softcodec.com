@@ -102,7 +102,7 @@ export default function AboutPage() {
                     <div style={{ fontSize: '11px', color: '#7c3aed', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '6px' }}>Since 2024 (2 Yrs)</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '36px', fontWeight: 900, color: '#0f172a', fontFamily: 'Orbitron' }}>45+</div>
+                    <div style={{ fontSize: '36px', fontWeight: 900, color: '#0f172a', fontFamily: 'Orbitron' }}>30+</div>
                     <div style={{ fontSize: '11px', color: '#7c3aed', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1.5px', marginTop: '6px' }}>Projects Completed</div>
                   </div>
                   <div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
                   backdropFilter: 'blur(10px)',
                   transition: 'all 0.3s'
                 }}>
-                  <div style={{ color: '#a78bfa', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>45+</div>
+                  <div style={{ color: '#a78bfa', fontSize: '24px', fontWeight: 950, lineHeight: 1.1 }}>30+</div>
                   <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginTop: '5px' }}>Projects Done</div>
                 </div>
 

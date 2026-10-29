@@ -227,7 +227,7 @@ export default function Navbar() {
                         </span>
                       </div>
                       <span style={{ fontSize: '11px', fontWeight: 700, color: 'rgba(6,182,212,0.8)', background: 'rgba(6,182,212,0.1)', padding: '4px 12px', borderRadius: '100px' }}>
-                        45+ Masterpieces Delivered
+                        30+ Masterpieces Delivered
                       </span>
                     </div>
                   </div>

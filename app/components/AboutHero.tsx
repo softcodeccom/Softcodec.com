@@ -88,7 +88,7 @@ export default function AboutHero() {
                       <div key={i} style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#f1f5f9', border: '2px solid #ffffff', marginLeft: i === 1 ? 0 : '-10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', color: '#94a3b8' }}>👤</div>
                     ))}
                   </div>
-                  <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: 600 }}>Trusted by 45+ Global Teams</div>
+                  <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: 600 }}>Trusted by 30+ Global Teams</div>
                 </div>
               </div>
             </motion.div>
