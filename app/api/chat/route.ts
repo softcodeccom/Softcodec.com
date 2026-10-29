@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const SYSTEM_KNOWLEDGE = {
-  ceo: "SoftCodec's CEO is Mian Salman (salmanshoukat@softcodec.co). He is a visionary leader in the IT and AI industry in Pakistan, driving SoftCodec's technical excellence globally.",
+  ceo: "SoftCodec's CEO is Mian Salman (salmanshoukat@softcodec.co). He is a visionary leader in the IT industry in Pakistan, driving SoftCodec's technical excellence globally.",
   hr: "Our HR Manager is Miss Aiza. She handles all recruitment and career-related queries. You can contact her at hr@softcodec.co or careers@softcodec.co.",
   founders: "SoftCodec was co-founded by Muhammad Behram Hassan, Muhammad Ahmad, and Abdullah. They lead the technical and creative vision of the company alongside CEO Mian Salman.",
   contact: "You can reach us at +92-307-6209331 (Phone/WhatsApp) or email us at info@softcodec.co. For project quotes, contact business@softcodec.co.",

@@ -1,6 +1,6 @@
-# SoftCodec - Premium Digital Solutions Agency
+# SoftCodec - Premium IT Company
 
-SoftCodec is a high-end SaaS and digital solutions agency website built with a focus on premium aesthetics, interactive 3D visuals, and seamless user experiences.
+SoftCodec is a high-end IT company website built with a focus on premium aesthetics, interactive 3D visuals, and seamless user experiences.
 
 ## 🚀 Core Features
 - **Modernized Service Pages**: Comprehensive overhauls for Web Development, AI Automation, Cloud/DevOps, UI/UX Design, E-commerce, and more.

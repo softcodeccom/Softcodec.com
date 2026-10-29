@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     try {
       const confirmEmail = contactConfirmationEmail(name, service || 'General Inquiry');
       await transporter.sendMail({
-        from: `"SoftCodec Agency" <${process.env.GMAIL_USER}>`,
+        from: `"SoftCodec" <${process.env.GMAIL_USER}>`,
         replyTo: 'info@softcodec.co',
         to: email,
         subject: confirmEmail.subject,

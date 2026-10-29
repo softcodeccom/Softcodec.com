@@ -32,7 +32,7 @@ const process = [
 
 const faqs = [
   { q: 'What is the actual timeframe to see ROI?', a: 'SEO compounds exponentially. Technical fixes provide an immediate algorithmic bump in 14-30 days. However, achieving absolute market dominance on highly competitive commercial terms requires a sustained 4 to 6-month aggressive sprint.' },
-  { q: 'Can you artificially guarantee the #1 ranking slot?', a: 'No elite agency guarantees a #1 static spot due to AI volatility. However, we guarantee the deployment of mathematically sound, server-grade technical structures that consistently secure massive organic traffic.' },
+  { q: 'Can you artificially guarantee the #1 ranking slot?', a: 'No reputable company guarantees a #1 static spot due to AI volatility. However, we guarantee the deployment of mathematically sound, server-grade technical structures that consistently secure massive organic traffic.' },
   { q: 'Why is Technical SEO prioritized over basic content?', a: 'If your server architecture is flawed, Google\'s crawlers will physically fail to index your content, wasting your marketing budget. We rebuild the engine before we paint the car.' },
   { q: 'What analytics infrastructure do you provide?', a: 'We wire up enterprise-grade telemetry. You don\'t just get PDFs; you get live BigQuery-backed data studios tracking keyword delta, crawl budgets, and precise organic attribution.' },
 ];
